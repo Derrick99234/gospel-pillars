@@ -1071,9 +1071,58 @@ body {
   font-size: 13px;
 }
 
-.portal-diff-row:last-child {
-  border-bottom: none;
+.portal-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
+
+.portal-form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.portal-diff-row-header {
+  font-weight: 600;
+  color: #64748b;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 4px;
+}
+
+.portal-diff-field-name {
+  font-weight: 600;
+  color: #475569;
+  text-transform: capitalize;
+}
+
+.portal-diff-old {
+  color: #64748b;
+  text-decoration: line-through;
+  background: #fef2f2;
+  padding: 2px 6px;
+  border-radius: 3px;
+  word-break: break-word;
+}
+
+.portal-diff-new {
+  color: #16a34a;
+  font-weight: 600;
+  background: #f0fdf4;
+  padding: 2px 6px;
+  border-radius: 3px;
+  word-break: break-word;
+}
+
+.hero-desc {
+  color: #94a3b8;
+  font-size: 16px;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
 
 
 
@@ -1196,8 +1245,25 @@ body {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (MOBILE, TABLET, DESKTOP)
    ========================================================================== */
+
+/* Prevent horizontal scrollbars globally */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+.header-wrapper,
+.search-container-section,
+.directory-container,
+.portal-layout,
+.site-footer {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 @media (max-width: 1024px) {
   .site-header {
     padding: 8px 16px;
@@ -1205,15 +1271,18 @@ body {
   .header-nav {
     gap: 16px;
   }
-  .outlets-grid {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  .simple-cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
   }
   .footer-top {
     grid-template-columns: 1fr 1fr;
+    gap: 36px;
   }
 }
 
 @media (max-width: 768px) {
+  /* Public Header */
   .header-nav,
   .btn-watch-live {
     display: none;
@@ -1221,26 +1290,221 @@ body {
   .mobile-menu-btn {
     display: block;
   }
+
+  /* Public Hero */
+  .hero-section {
+    padding: 48px 16px 52px;
+  }
   .hero-title {
     font-size: 28px;
+    letter-spacing: -0.3px;
+  }
+  .hero-desc {
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+
+  /* Public Search */
+  .search-container-section {
+    padding: 36px 16px 20px;
   }
   .search-heading {
     font-size: 20px;
   }
-  .outlets-grid,
+  .search-subheading {
+    font-size: 13.5px;
+    margin-bottom: 16px;
+  }
+  .search-input {
+    font-size: 15px;
+    padding: 12px 42px 12px 18px;
+  }
+
+  /* Filters & Tabs */
+  .controls-bar {
+    margin-top: 20px;
+    gap: 12px;
+  }
+  .simple-region-nav {
+    padding: 4px 0 8px;
+    gap: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .simple-tab-item {
+    padding: 8px 12px;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .filter-subbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .simple-type-group {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .filter-actions-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* Cards Grid */
+  .directory-container {
+    padding: 0 14px;
+    margin: 20px auto 60px;
+  }
   .simple-cards-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
+  .simple-outlet-card {
+    padding: 18px;
+  }
+
+  /* Midweek simple banner */
+  .midweek-simple-banner {
+    padding: 16px 18px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .btn-simple-midweek {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Portal & Admin Topbar */
+  .portal-topbar {
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .portal-topbar-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .portal-actions {
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .portal-container {
+    padding: 0 14px;
+    margin: 18px auto;
+  }
+  .portal-hero-card {
+    padding: 18px 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+  .portal-hero-card button {
+    width: 100%;
+    justify-content: center;
+  }
+  .portal-login-card {
+    margin: 40px auto;
+    padding: 24px 18px;
+  }
+  .portal-modal-content {
+    padding: 20px 16px;
+    width: 95vw;
+    max-height: 94vh;
+  }
+  .portal-form-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Footer */
   .footer-top {
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  .outlet-list-row {
+  .footer-bottom-bar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
   }
-  .list-row-actions {
+}
+
+@media (max-width: 640px) {
+  /* Diff Viewer on Mobile Phones */
+  .portal-diff-row-header {
+    display: none;
+  }
+  .portal-diff-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 10px 0;
+  }
+  .portal-diff-field-name {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 13.5px;
+    margin-bottom: 2px;
+  }
+  .portal-diff-old::before {
+    content: "Live: ";
+    font-weight: 600;
+    color: #64748b;
+  }
+  .portal-diff-new::before {
+    content: "New: ";
+    font-weight: 600;
+    color: #16a34a;
+  }
+  .portal-diff-old,
+  .portal-diff-new {
+    display: block;
     width: 100%;
-    margin-top: 10px;
+  }
+
+  /* Toast Notification */
+  .toast-notice {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 24px;
+  }
+  .hero-section {
+    padding: 40px 14px 44px;
+  }
+  .search-heading {
+    font-size: 18px;
+  }
+  .search-input {
+    font-size: 14px;
+    padding: 10px 38px 10px 14px;
+  }
+  .simple-outlet-card {
+    padding: 14px;
+  }
+  .simple-outlet-name {
+    font-size: 16px;
+  }
+  .simple-phone-group {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+  .simple-directions-btn {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+  .portal-user-tag {
+    display: none;
   }
 }

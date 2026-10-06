@@ -252,7 +252,7 @@ export default function SectionManagerPortal() {
     <div className="portal-layout">
       {/* Top Header */}
       <header className="portal-topbar">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <div className="portal-topbar-left">
           <Link href="/" className="portal-brand">
             <Image
               src="/logo.png"
@@ -711,14 +711,7 @@ export default function SectionManagerPortal() {
                 />
               </div>
 
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: '12px',
-                  marginBottom: '16px',
-                }}
-              >
+              <div className="portal-form-grid-2">
                 <div>
                   <label className="portal-label">City</label>
                   <input

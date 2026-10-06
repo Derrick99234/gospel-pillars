@@ -255,7 +255,7 @@ export default function AdminPortal() {
     <div className="portal-layout">
       {/* Top Header */}
       <header className="portal-topbar">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <div className="portal-topbar-left">
           <Link href="/" className="portal-brand">
             <Image
               src="/logo.png"
@@ -633,7 +633,7 @@ export default function AdminPortal() {
 
                               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                                 <div
-                                  className="portal-diff-row"
+                                  className="portal-diff-row portal-diff-row-header"
                                   style={{
                                     fontWeight: '600',
                                     color: '#64748b',
@@ -650,6 +650,7 @@ export default function AdminPortal() {
                                   ch.diff_fields.map((df, dIdx) => (
                                     <div key={dIdx} className="portal-diff-row">
                                       <span
+                                        className="portal-diff-field-name"
                                         style={{
                                           fontWeight: '600',
                                           color: '#475569',
@@ -659,6 +660,7 @@ export default function AdminPortal() {
                                         {df.field.replace(/_/g, ' ')}
                                       </span>
                                       <span
+                                        className="portal-diff-old"
                                         style={{
                                           color: '#64748b',
                                           textDecoration: 'line-through',
@@ -672,6 +674,7 @@ export default function AdminPortal() {
                                           : df.old_value || '(empty)'}
                                       </span>
                                       <span
+                                        className="portal-diff-new"
                                         style={{
                                           color: '#16a34a',
                                           fontWeight: '600',
@@ -990,14 +993,7 @@ export default function AdminPortal() {
                 />
               </div>
 
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: '12px',
-                  marginBottom: '16px',
-                }}
-              >
+              <div className="portal-form-grid-2">
                 <div>
                   <label className="portal-label">Manager Username *</label>
                   <input
@@ -1116,14 +1112,7 @@ export default function AdminPortal() {
                 />
               </div>
 
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: '12px',
-                  marginBottom: '16px',
-                }}
-              >
+              <div className="portal-form-grid-2">
                 <div>
                   <label className="portal-label">Username</label>
                   <input
