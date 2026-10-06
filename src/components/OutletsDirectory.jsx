@@ -11,7 +11,8 @@ import {
   Navigation,
   Compass,
   Grid,
-  List
+  List,
+  Building2
 } from 'lucide-react';
 
 export default function OutletsDirectory({ outletsData }) {
@@ -21,7 +22,6 @@ export default function OutletsDirectory({ outletsData }) {
   const [viewMode, setViewMode] = useState('grid');
   const [toastMessage, setToastMessage] = useState(null);
   const [copiedId, setCopiedId] = useState(null);
-  const [showMidweekModal, setShowMidweekModal] = useState(false);
 
   const outlets = outletsData.outlets || [];
   const regionsSummary = outletsData.metadata?.regions_summary || {};
@@ -201,24 +201,6 @@ export default function OutletsDirectory({ outletsData }) {
 
       {/* Directory Content Area */}
       <div className="directory-container">
-        {/* Midweek Services Highlight Banner */}
-        <div className="midweek-simple-banner" id="lagos-midweek-service-centers">
-          <div>
-            <h3 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '4px', color: '#1e293b' }}>
-              Lagos Midweek Service Centers
-            </h3>
-            <p style={{ fontSize: '14px', color: '#64748b' }}>
-              Midweek service holds across all Lagos centers on Wednesdays and Thursdays.
-            </p>
-          </div>
-          <button
-            className="btn-simple-midweek"
-            onClick={() => setShowMidweekModal(true)}
-            type="button"
-          >
-            See Midweek Centers
-          </button>
-        </div>
 
         {/* Empty Search State */}
         {filteredOutlets.length === 0 && (
@@ -242,51 +224,68 @@ export default function OutletsDirectory({ outletsData }) {
           </div>
         )}
 
-        {/* Display Grouped Results - Simple & Clean without badge pills */}
+        {/* Display Grouped Results */}
         {Object.entries(groupedResults).map(([regionName, items]) => (
           <div key={regionName} className="section-group">
             <div className="section-group-header">
               <h3 className="section-group-title">
                 {regionName}
-                <span style={{ fontSize: '15px', fontWeight: '500', color: '#64748b' }}>({items.length})</span>
+                <span className="section-group-badge">{items.length}</span>
               </h3>
             </div>
 
             {viewMode === 'grid' ? (
-              <div className="simple-cards-grid">
+              <div className="outlets-grid">
                 {items.map((outlet) => (
-                  <article key={outlet.id} className="simple-outlet-card">
-                    <div className="simple-card-body">
-                      <h4 className="simple-outlet-name">{outlet.name}</h4>
+                  <article key={outlet.id} className="outlet-card">
+                    <div className="card-top">
+                      <div className="card-badges-row">
+                        <span className="badge-region">{outlet.city || outlet.country}</span>
+                        {outlet.branch_type && outlet.branch_type !== 'Church Branch' && (
+                          <span
+                            className={`badge-type ${
+                              outlet.branch_type === 'Campus Fellowship'
+                                ? 'campus'
+                                : 'community'
+                            }`}
+                          >
+                            {outlet.branch_type}
+                          </span>
+                        )}
+                      </div>
+
+                      <h4 className="outlet-name">{outlet.name}</h4>
 
                       {outlet.venue && (
-                        <div className="simple-venue-text">
-                          {outlet.venue}
+                        <div className="venue-tag" title="Venue / Hall">
+                          <Building2 size={13} />
+                          <span>{outlet.venue}</span>
                         </div>
                       )}
 
-                      <div className="simple-address-row">
-                        <MapPin size={16} className="simple-address-icon" />
+                      <div className="address-row">
+                        <MapPin size={16} className="address-icon" />
                         <span>{outlet.address}</span>
                       </div>
 
                       {outlet.landmarks && (
-                        <div className="simple-landmark-text">
-                          <span>Landmark:</span> {outlet.landmarks}
+                        <div className="landmarks-box">
+                          <strong>Note / Landmark:</strong> {outlet.landmarks}
                         </div>
                       )}
                     </div>
 
-                    <div className="simple-card-footer">
+                    <div className="card-bottom">
+                      {/* Phone Numbers */}
                       {outlet.phone_numbers && outlet.phone_numbers.length > 0 ? (
-                        <div className="simple-phones-row">
+                        <div className="phone-list">
                           {outlet.phone_numbers.map((phone, pIdx) => {
                             const cleanTel = phone.replace(/[^\d+]/g, '');
                             return (
-                              <div key={pIdx} className="simple-phone-group">
+                              <div key={pIdx} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                                 <a
                                   href={`tel:${cleanTel}`}
-                                  className="simple-phone-link"
+                                  className="phone-chip"
                                   title={`Call ${phone}`}
                                 >
                                   <Phone size={13} />
@@ -295,13 +294,24 @@ export default function OutletsDirectory({ outletsData }) {
                                 <button
                                   type="button"
                                   onClick={() => handleCopy(phone, `${outlet.id}-${pIdx}`, 'Phone')}
-                                  className="simple-copy-btn"
-                                  title="Copy phone"
+                                  style={{
+                                    background: '#f1f5f9',
+                                    border: '1px solid #cbd5e1',
+                                    padding: '6px 8px',
+                                    borderRadius: '6px',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    color: '#475569',
+                                    transition: 'all 0.15s ease'
+                                  }}
+                                  title="Copy phone number"
                                 >
                                   {copiedId === `${outlet.id}-${pIdx}` ? (
-                                    <Check size={12} color="#16a34a" />
+                                    <Check size={13} color="#16a34a" />
                                   ) : (
-                                    <Copy size={12} />
+                                    <Copy size={13} />
                                   )}
                                 </button>
                               </div>
@@ -309,46 +319,67 @@ export default function OutletsDirectory({ outletsData }) {
                           })}
                         </div>
                       ) : (
-                        <span style={{ fontSize: '13px', color: '#94a3b8' }}>
-                          Contact Central Office
+                        <span style={{ fontSize: '13px', color: '#94a3b8', fontStyle: 'italic' }}>
+                          Contact via Gospel Pillars Central Office
                         </span>
                       )}
 
+                      {/* Google Maps Directions */}
                       <a
                         href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
                           `${outlet.name}, ${outlet.address}`
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="simple-directions-btn"
+                        className="btn-directions"
                       >
                         <Navigation size={13} />
                         Get Directions
-                        <ExternalLink size={12} style={{ marginLeft: 'auto' }} />
+                        <ExternalLink size={11} style={{ marginLeft: 'auto' }} />
                       </a>
                     </div>
                   </article>
                 ))}
               </div>
             ) : (
-              /* Simple List View Mode */
+              /* List View Mode */
               <div className="outlets-list-view">
                 {items.map((outlet) => (
-                  <div key={outlet.id} className="simple-list-row">
-                    <div style={{ flex: 1 }}>
-                      <h4 style={{ fontSize: '16px', fontWeight: '600', color: '#0f172a', marginBottom: '3px' }}>
-                        {outlet.name}
-                      </h4>
-                      <p style={{ fontSize: '13.5px', color: '#475569' }}>
+                  <div key={outlet.id} className="outlet-list-row">
+                    <div className="list-row-main">
+                      <div className="list-row-title-bar">
+                        {outlet.branch_type && outlet.branch_type !== 'Church Branch' && (
+                          <span
+                            className={`badge-type ${
+                              outlet.branch_type === 'Campus Fellowship'
+                                ? 'campus'
+                                : 'community'
+                            }`}
+                          >
+                            {outlet.branch_type}
+                          </span>
+                        )}
+                        <h4 className="list-row-title">{outlet.name}</h4>
+                        {outlet.venue && (
+                          <span style={{ fontSize: '12px', color: '#0284c7', background: '#f0f9ff', padding: '2px 8px', borderRadius: '4px' }}>
+                            {outlet.venue}
+                          </span>
+                        )}
+                      </div>
+                      <p className="list-row-address">
+                        <MapPin size={13} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '4px' }} />
                         {outlet.address}
+                        {outlet.city ? ` • ${outlet.city}` : ''}
+                        {outlet.country ? ` • ${outlet.country}` : ''}
                       </p>
                     </div>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div className="list-row-actions">
                       {outlet.phone_numbers && outlet.phone_numbers[0] && (
                         <a
                           href={`tel:${outlet.phone_numbers[0].replace(/[^\d+]/g, '')}`}
-                          className="simple-phone-link"
+                          className="phone-chip"
+                          style={{ padding: '6px 10px', fontSize: '12px' }}
                         >
                           <Phone size={12} />
                           {outlet.phone_numbers[0]}
@@ -360,9 +391,10 @@ export default function OutletsDirectory({ outletsData }) {
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="simple-directions-btn"
-                        style={{ width: 'auto', padding: '6px 12px' }}
+                        className="phone-chip"
+                        style={{ padding: '6px 10px', fontSize: '12px', background: '#0f172a', color: '#ffffff', borderColor: '#0f172a' }}
                       >
+                        <Navigation size={12} />
                         Directions
                       </a>
                     </div>
@@ -374,101 +406,6 @@ export default function OutletsDirectory({ outletsData }) {
         ))}
       </div>
 
-      {/* Midweek Centers Modal */}
-      {showMidweekModal && (
-        <div style={{
-          position: 'fixed',
-          inset: 0,
-          background: 'rgba(12, 14, 30, 0.6)',
-          zIndex: 1000,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '20px'
-        }}>
-          <div style={{
-            background: '#ffffff',
-            borderRadius: '12px',
-            maxWidth: '600px',
-            width: '100%',
-            maxHeight: '90vh',
-            overflowY: 'auto',
-            padding: '28px',
-            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)',
-            position: 'relative'
-          }}>
-            <button
-              onClick={() => setShowMidweekModal(false)}
-              style={{
-                position: 'absolute',
-                top: '18px',
-                right: '18px',
-                background: '#f1f5f9',
-                border: 'none',
-                width: '30px',
-                height: '30px',
-                borderRadius: '6px',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#64748b'
-              }}
-              type="button"
-            >
-              ✕
-            </button>
-
-            <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '8px', color: '#0f172a' }}>
-              Lagos Midweek Service Centers
-            </h3>
-            <p style={{ color: '#64748b', fontSize: '14px', marginBottom: '20px' }}>
-              Join us for inspiring worship and Word at our Lagos service centers.
-            </p>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <div style={{ padding: '12px', background: '#f8fafc', borderRadius: '6px', border: '1px solid #e2e8f0' }}>
-                <strong style={{ display: 'block', color: '#0f172a', fontSize: '15px' }}>Ark of Light for All Nations (Ikeja)</strong>
-                <p style={{ fontSize: '13px', color: '#475569', marginTop: '2px' }}>11 Kudirat Abiola Way, Ikeja, Lagos • +234 906 460 0560</p>
-              </div>
-
-              <div style={{ padding: '12px', background: '#f8fafc', borderRadius: '6px', border: '1px solid #e2e8f0' }}>
-                <strong style={{ display: 'block', color: '#0f172a', fontSize: '15px' }}>The Hebron – Lekki Outlet</strong>
-                <p style={{ fontSize: '13px', color: '#475569', marginTop: '2px' }}>180 Freedom Way, Lekki Phase 1 • +234 809 011 1194</p>
-              </div>
-
-              <div style={{ padding: '12px', background: '#f8fafc', borderRadius: '6px', border: '1px solid #e2e8f0' }}>
-                <strong style={{ display: 'block', color: '#0f172a', fontSize: '15px' }}>Yaba / Somolu Outlet</strong>
-                <p style={{ fontSize: '13px', color: '#475569', marginTop: '2px' }}>Beverly&apos;s Event Center, 33-37 Shogbamu St, Somolu • +234 906 310 7001</p>
-              </div>
-
-              <div style={{ padding: '12px', background: '#f8fafc', borderRadius: '6px', border: '1px solid #e2e8f0' }}>
-                <strong style={{ display: 'block', color: '#0f172a', fontSize: '15px' }}>Ikorodu Outlet</strong>
-                <p style={{ fontSize: '13px', color: '#475569', marginTop: '2px' }}>94 Oba-Sekumade Road, Beside Ipakodo Grammar School • +234 902 789 8589</p>
-              </div>
-            </div>
-
-            <button
-              onClick={() => setShowMidweekModal(false)}
-              style={{
-                width: '100%',
-                background: '#0c0e1e',
-                color: '#ffffff',
-                border: 'none',
-                padding: '12px',
-                borderRadius: '6px',
-                fontWeight: '600',
-                fontSize: '14px',
-                marginTop: '20px',
-                cursor: 'pointer'
-              }}
-              type="button"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* Copy Toast */}
       {toastMessage && (
