@@ -86,7 +86,6 @@ export default function Header() {
             rel="noopener noreferrer"
             className="btn-watch-live"
           >
-            <span className="live-dot"></span>
             Watch Live Services
           </a>
 
@@ -139,7 +138,6 @@ export default function Header() {
             className="btn-watch-live"
             style={{ width: '100%', justifyContent: 'center', marginTop: '8px' }}
           >
-            <span className="live-dot"></span>
             Watch Live Services
           </a>
         </div>
