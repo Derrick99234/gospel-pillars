@@ -242,11 +242,6 @@ export default function SectionManagerPortal() {
     );
   });
 
-  // Demo shortcut login helper
-  const handleQuickDemoLogin = (u, p) => {
-    setUsername(u);
-    setPassword(p);
-  };
 
   return (
     <div className="portal-layout">
@@ -396,54 +391,6 @@ export default function SectionManagerPortal() {
               </button>
             </form>
 
-            {/* Quick Demo Credentials */}
-            <div
-              style={{
-                marginTop: '24px',
-                paddingTop: '16px',
-                borderTop: '1px solid #e2e8f0',
-                fontSize: '12px',
-                color: '#64748b',
-              }}
-            >
-              <span style={{ fontWeight: '600', display: 'block', marginBottom: '6px' }}>
-                Demo Credentials:
-              </span>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                <button
-                  type="button"
-                  onClick={() => handleQuickDemoLogin('lagos', 'lagos123')}
-                  className="portal-btn-secondary"
-                  style={{ fontSize: '11.5px', padding: '4px 8px' }}
-                >
-                  Lagos (lagos123)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleQuickDemoLogin('nigeria', 'nigeria123')}
-                  className="portal-btn-secondary"
-                  style={{ fontSize: '11.5px', padding: '4px 8px' }}
-                >
-                  Nigeria (nigeria123)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleQuickDemoLogin('uk', 'uk123')}
-                  className="portal-btn-secondary"
-                  style={{ fontSize: '11.5px', padding: '4px 8px' }}
-                >
-                  UK (uk123)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleQuickDemoLogin('americas', 'americas123')}
-                  className="portal-btn-secondary"
-                  style={{ fontSize: '11.5px', padding: '4px 8px' }}
-                >
-                  Americas (americas123)
-                </button>
-              </div>
-            </div>
           </div>
         ) : (
           /* Manager One-Pager Dashboard */

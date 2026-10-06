@@ -2092,5 +2092,75 @@
     }
   ],
   "drafts": {},
-  "submissions": []
+  "submissions": [
+    {
+      "id": "sub-1791318916900",
+      "section_id": "lagos",
+      "section_name": "Church Locations Across Lagos",
+      "display_name": "Lagos",
+      "submitted_by": "Lagos Section Manager",
+      "submitted_at": "2026-10-06T20:35:16.900Z",
+      "status": "pending",
+      "changes": [
+        {
+          "outlet_id": "lagos-lekki",
+          "outlet_name": "The Hebron – Gospel Pillars Church, Lekkiqqq",
+          "original": {
+            "id": "lagos-lekki",
+            "index": 1,
+            "name": "The Hebron – Gospel Pillars Church, Lekki",
+            "original_heading": "LEKKI",
+            "region_category": "Church Locations Across Lagos",
+            "branch_type": "Church Branch",
+            "venue": "The Hebron",
+            "address": "The Hebron – Gospel Pillars Church, Lekki, 180 Freedom Way, After Renee Supermarket, Off Admiralty Way, Lekki Phase 1, Lekki.",
+            "city": "Lekki",
+            "state_or_province": "Lagos State",
+            "country": "Nigeria",
+            "postal_code": null,
+            "phone_numbers": [
+              "+234 809 011 1194"
+            ],
+            "landmarks": "After Renee Supermarket, Off Admiralty Way",
+            "raw_text": "LEKKI The Hebron – Gospel Pillars Church, Lekki, 180 Freedom Way, After Renee Supermarket, Off Admiralty Way, Lekki Phase 1, Lekki. – +234 809 011 1194",
+            "section_id": "lagos",
+            "status": "approved",
+            "updated_at": "2026-10-06T19:42:27.884Z"
+          },
+          "updated": {
+            "id": "lagos-lekki",
+            "index": 1,
+            "name": "The Hebron – Gospel Pillars Church, Lekkiqqq",
+            "original_heading": "LEKKI",
+            "region_category": "Church Locations Across Lagos",
+            "branch_type": "Church Branch",
+            "venue": "The Hebron",
+            "address": "The Hebron – Gospel Pillars Church, Lekki, 180 Freedom Way, After Renee Supermarket, Off Admiralty Way, Lekki Phase 1, Lekki.",
+            "city": "Lekki",
+            "state_or_province": "Lagos State",
+            "country": "Nigeria",
+            "postal_code": null,
+            "phone_numbers": [
+              "+234 809 011 1194"
+            ],
+            "landmarks": "After Renee Supermarket, Off Admiralty Way",
+            "raw_text": "LEKKI The Hebron – Gospel Pillars Church, Lekki, 180 Freedom Way, After Renee Supermarket, Off Admiralty Way, Lekki Phase 1, Lekki. – +234 809 011 1194",
+            "section_id": "lagos",
+            "status": "approved",
+            "updated_at": "2026-10-06T19:42:27.884Z",
+            "draft_updated_at": "2026-10-06T20:35:13.251Z"
+          },
+          "diff_fields": [
+            {
+              "field": "name",
+              "old_value": "The Hebron – Gospel Pillars Church, Lekki",
+              "new_value": "The Hebron – Gospel Pillars Church, Lekkiqqq"
+            }
+          ]
+        }
+      ],
+      "admin_notes": null,
+      "reviewed_at": null
+    }
+  ]
 }
