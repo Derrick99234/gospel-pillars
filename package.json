@@ -1,0 +1,28 @@
+{
+  "name": "gospel-pillars",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Derrick99234/gospel-pillars.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Derrick99234/gospel-pillars/issues"
+  },
+  "homepage": "https://github.com/Derrick99234/gospel-pillars#readme",
+  "dependencies": {
+    "lucide-react": "^1.52.0",
+    "next": "^16.3.8",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  }
+}
