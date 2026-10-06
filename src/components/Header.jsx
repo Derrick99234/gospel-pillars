@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ChevronDown, Menu, X, Play } from 'lucide-react';
 
 export default function Header() {
@@ -68,6 +69,10 @@ export default function Header() {
             Outlets
           </a>
 
+          <Link href="/portal" className="nav-link">
+            Manager Portal
+          </Link>
+
           <a href="https://gospelpillars.org/contact/" className="nav-link">
             Contact Us
           </a>
@@ -124,6 +129,7 @@ export default function Header() {
           <a href="https://gospelpillars.org/blog/" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Blog</a>
           <a href="https://gospelpillars.org/give/" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Give Online</a>
           <a href="#outlets" className="nav-link active" onClick={() => setMobileMenuOpen(false)}>Outlets</a>
+          <Link href="/portal" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Manager Portal</Link>
           <a href="https://gospelpillars.org/contact/" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Contact Us</a>
           <a
             href="https://www.youtube.com/@gospelpillarsinternational/live"

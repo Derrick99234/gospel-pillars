@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -83,7 +84,13 @@ export default function Footer() {
           <p className="footer-copyright">
             Copyright {new Date().getFullYear()} - Gospel Pillars Int&apos;l Church. All rights reserved.
           </p>
-          <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '18px', flexWrap: 'wrap' }}>
+            <Link href="/portal" className="footer-legal-link">
+              Section Manager Portal
+            </Link>
+            <Link href="/admin" className="footer-legal-link">
+              Admin Control Center
+            </Link>
             <a
               href="https://gospelpillars.org/privacy-policy"
               className="footer-legal-link"

@@ -2,11 +2,33 @@ import Header from '../components/Header';
 import Hero from '../components/Hero';
 import OutletsDirectory from '../components/OutletsDirectory';
 import Footer from '../components/Footer';
-import outletsData from '../data/outlets.json';
+import { getDatabase } from '../lib/db';
+import outletsDataFallback from '../data/outlets.json';
+
+export const dynamic = 'force-dynamic';
 
 export default function HomePage() {
-  const totalOutlets = outletsData?.metadata?.total_outlets || 91;
-  const totalRegions = outletsData?.metadata?.total_regions || 6;
+  const db = getDatabase();
+  const outlets = (db && db.outlets && db.outlets.length > 0) ? db.outlets : outletsDataFallback.outlets;
+  
+  // Calculate dynamic counts per region
+  const regionsSummary = {};
+  outlets.forEach((item) => {
+    const reg = item.region_category || 'Other';
+    regionsSummary[reg] = (regionsSummary[reg] || 0) + 1;
+  });
+
+  const liveOutletsData = {
+    metadata: {
+      total_outlets: outlets.length,
+      total_regions: Object.keys(regionsSummary).length,
+      regions_summary: regionsSummary,
+    },
+    outlets,
+  };
+
+  const totalOutlets = liveOutletsData.metadata.total_outlets;
+  const totalRegions = liveOutletsData.metadata.total_regions;
 
   return (
     <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
@@ -18,7 +40,7 @@ export default function HomePage() {
 
       {/* Interactive Outlets Directory */}
       <div style={{ flex: 1 }}>
-        <OutletsDirectory outletsData={outletsData} />
+        <OutletsDirectory outletsData={liveOutletsData} />
       </div>
 
       {/* Footer matching website */}
