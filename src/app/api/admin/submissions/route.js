@@ -1,12 +1,19 @@
 import { NextResponse } from 'next/server';
-import { getDatabase, saveDatabase } from '@/lib/db';
+import { supabase } from '@/lib/supabase';
 
+// GET: List all submissions with section stats
 export async function GET() {
   try {
-    const db = getDatabase();
+    const { data: submissions, error } = await supabase
+      .from('submissions')
+      .select('*')
+      .order('submitted_at', { ascending: false });
+
+    if (error) throw error;
+
     return NextResponse.json({
       success: true,
-      submissions: db.submissions || [],
+      submissions: submissions || [],
     });
   } catch (error) {
     return NextResponse.json(
@@ -16,7 +23,7 @@ export async function GET() {
   }
 }
 
-// Approve or Reject submission
+// POST: Approve or Reject a submission
 export async function POST(request) {
   try {
     const { submission_id, action, notes, admin_name } = await request.json();
@@ -28,63 +35,76 @@ export async function POST(request) {
       );
     }
 
-    const db = getDatabase();
-    const subIndex = (db.submissions || []).findIndex((s) => s.id === submission_id);
+    // Fetch submission
+    const { data: submission, error: fetchErr } = await supabase
+      .from('submissions')
+      .select('*')
+      .eq('id', submission_id)
+      .single();
 
-    if (subIndex === -1) {
+    if (fetchErr || !submission) {
       return NextResponse.json(
         { success: false, message: 'Submission not found' },
         { status: 404 }
       );
     }
 
-    const submission = db.submissions[subIndex];
+    const reviewedAt = new Date().toISOString();
+    const reviewedBy = admin_name || 'Super Admin';
 
     if (action === 'approve') {
-      // Merge each approved outlet into db.outlets
-      submission.changes.forEach((item) => {
-        const outletIndex = db.outlets.findIndex((o) => o.id === item.outlet_id);
-        if (outletIndex !== -1) {
-          db.outlets[outletIndex] = {
-            ...db.outlets[outletIndex],
-            ...item.updated,
-            status: 'approved',
-            updated_at: new Date().toISOString(),
-          };
-        } else {
-          // If it was a new outlet, push it
-          db.outlets.push({
-            ...item.updated,
-            status: 'approved',
-            updated_at: new Date().toISOString(),
-          });
-        }
+      // Apply each change to outlets table
+      const updates = (submission.changes || []).map((item) => {
+        const updatedOutlet = {
+          ...item.updated,
+          status: 'approved',
+          updated_at: reviewedAt,
+        };
+        return supabase
+          .from('outlets')
+          .upsert(updatedOutlet, { onConflict: 'id' });
       });
+      const results = await Promise.all(updates);
+      const firstErr = results.find((r) => r.error)?.error;
+      if (firstErr) throw firstErr;
 
-      submission.status = 'approved';
-      submission.reviewed_at = new Date().toISOString();
-      submission.reviewed_by = admin_name || 'Super Admin';
-      submission.admin_notes = notes || 'Approved and published to live directory.';
-      
-      saveDatabase(db);
+      // Update submission status
+      const { data: updated, error: updErr } = await supabase
+        .from('submissions')
+        .update({
+          status: 'approved',
+          reviewed_at: reviewedAt,
+          admin_notes: notes || 'Approved and published to live directory.',
+        })
+        .eq('id', submission_id)
+        .select()
+        .single();
+
+      if (updErr) throw updErr;
 
       return NextResponse.json({
         success: true,
         message: `Changes for ${submission.display_name} have been approved and published live!`,
-        submission,
+        submission: updated,
       });
     } else if (action === 'reject') {
-      submission.status = 'rejected';
-      submission.reviewed_at = new Date().toISOString();
-      submission.reviewed_by = admin_name || 'Super Admin';
-      submission.admin_notes = notes || 'Changes rejected by Super Admin.';
+      const { data: updated, error: updErr } = await supabase
+        .from('submissions')
+        .update({
+          status: 'rejected',
+          reviewed_at: reviewedAt,
+          admin_notes: notes || 'Changes rejected by Super Admin.',
+        })
+        .eq('id', submission_id)
+        .select()
+        .single();
 
-      saveDatabase(db);
+      if (updErr) throw updErr;
 
       return NextResponse.json({
         success: true,
         message: `Changes for ${submission.display_name} have been rejected.`,
-        submission,
+        submission: updated,
       });
     }
 

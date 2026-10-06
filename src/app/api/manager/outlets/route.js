@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
-import { getDatabase, saveDatabase } from '@/lib/db';
+import { supabase } from '@/lib/supabase';
 
+// GET: Fetch outlets + drafts for a section
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
@@ -13,49 +14,70 @@ export async function GET(request) {
       );
     }
 
-    const db = getDatabase();
-    const section = db.sections.find((s) => s.id === sectionId);
-    if (!section) {
+    // Fetch section
+    const { data: section, error: secErr } = await supabase
+      .from('sections')
+      .select('*')
+      .eq('id', sectionId)
+      .single();
+
+    if (secErr || !section) {
       return NextResponse.json(
         { success: false, message: 'Section not found' },
         { status: 404 }
       );
     }
 
-    // Get live outlets for this section
-    const baseOutlets = db.outlets.filter((o) => o.section_id === sectionId);
+    // Fetch live outlets for this section
+    const { data: baseOutlets, error: outErr } = await supabase
+      .from('outlets')
+      .select('*')
+      .eq('section_id', sectionId)
+      .order('index');
 
-    // Get active drafts for this section
-    const drafts = db.drafts[sectionId] || {};
+    if (outErr) throw outErr;
 
-    // Merge base outlets with any drafts
-    const mergedOutlets = baseOutlets.map((outlet) => {
-      const draft = drafts[outlet.id];
+    // Fetch active drafts for this section
+    const outletIds = (baseOutlets || []).map((o) => o.id);
+    let draftsMap = {};
+    if (outletIds.length > 0) {
+      const { data: drafts, error: draftErr } = await supabase
+        .from('drafts')
+        .select('*')
+        .in('outlet_id', outletIds);
+
+      if (draftErr) throw draftErr;
+      (drafts || []).forEach((d) => {
+        draftsMap[d.outlet_id] = d.draft_data;
+      });
+    }
+
+    // Merge drafts into outlets
+    const mergedOutlets = (baseOutlets || []).map((outlet) => {
+      const draft = draftsMap[outlet.id];
       if (draft) {
-        return {
-          ...outlet,
-          ...draft,
-          has_draft: true,
-        };
+        return { ...outlet, ...draft, has_draft: true };
       }
-      return {
-        ...outlet,
-        has_draft: false,
-      };
+      return { ...outlet, has_draft: false };
     });
 
-    // Check if there is an active pending submission
-    const pendingSubmission = db.submissions.find(
-      (sub) => sub.section_id === sectionId && sub.status === 'pending'
-    );
+    const draftCount = Object.keys(draftsMap).length;
+
+    // Check for active pending submission
+    const { data: pendingSubs } = await supabase
+      .from('submissions')
+      .select('*')
+      .eq('section_id', sectionId)
+      .eq('status', 'pending')
+      .limit(1);
 
     return NextResponse.json({
       success: true,
       section,
       outlets: mergedOutlets,
-      hasDrafts: Object.keys(drafts).length > 0,
-      draftCount: Object.keys(drafts).length,
-      pendingSubmission: pendingSubmission || null,
+      hasDrafts: draftCount > 0,
+      draftCount,
+      pendingSubmission: (pendingSubs && pendingSubs[0]) || null,
     });
   } catch (error) {
     return NextResponse.json(
@@ -65,7 +87,7 @@ export async function GET(request) {
   }
 }
 
-// Save draft edit for an outlet
+// POST: Save draft edit for an outlet
 export async function POST(request) {
   try {
     const body = await request.json();
@@ -78,22 +100,21 @@ export async function POST(request) {
       );
     }
 
-    const db = getDatabase();
-    if (!db.drafts[sectionId]) {
-      db.drafts[sectionId] = {};
-    }
+    // Verify outlet exists
+    const { data: original, error: origErr } = await supabase
+      .from('outlets')
+      .select('*')
+      .eq('id', outletId)
+      .single();
 
-    // Find original outlet
-    const original = db.outlets.find((o) => o.id === outletId);
-    if (!original) {
+    if (origErr || !original) {
       return NextResponse.json(
         { success: false, message: 'Outlet not found' },
         { status: 404 }
       );
     }
 
-    // Save updated fields into draft
-    db.drafts[sectionId][outletId] = {
+    const draftData = {
       ...original,
       ...updatedData,
       id: outletId,
@@ -101,12 +122,30 @@ export async function POST(request) {
       draft_updated_at: new Date().toISOString(),
     };
 
-    saveDatabase(db);
+    // Upsert draft
+    const { error: upsertErr } = await supabase.from('drafts').upsert({
+      outlet_id: outletId,
+      draft_data: draftData,
+      updated_at: new Date().toISOString(),
+    });
+
+    if (upsertErr) throw upsertErr;
+
+    // Count current drafts for this section
+    const { data: allOutlets } = await supabase
+      .from('outlets')
+      .select('id')
+      .eq('section_id', sectionId);
+    const outletIds = (allOutlets || []).map((o) => o.id);
+    const { count } = await supabase
+      .from('drafts')
+      .select('outlet_id', { count: 'exact', head: true })
+      .in('outlet_id', outletIds);
 
     return NextResponse.json({
       success: true,
       message: 'Draft saved successfully',
-      draftCount: Object.keys(db.drafts[sectionId]).length,
+      draftCount: count || 1,
     });
   } catch (error) {
     return NextResponse.json(

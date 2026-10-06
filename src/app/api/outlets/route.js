@@ -1,14 +1,22 @@
 import { NextResponse } from 'next/server';
-import { getDatabase } from '@/lib/db';
+import { supabase } from '@/lib/supabase';
 
 export async function GET() {
   try {
-    const db = getDatabase();
+    const [{ data: sections, error: secErr }, { data: outlets, error: outErr }] =
+      await Promise.all([
+        supabase.from('sections').select('*').order('created_at'),
+        supabase.from('outlets').select('*').order('index'),
+      ]);
+
+    if (secErr) throw secErr;
+    if (outErr) throw outErr;
+
     return NextResponse.json({
       success: true,
-      sections: db.sections,
-      outlets: db.outlets,
-      total: db.outlets.length,
+      sections: sections || [],
+      outlets: outlets || [],
+      total: (outlets || []).length,
     });
   } catch (error) {
     return NextResponse.json(

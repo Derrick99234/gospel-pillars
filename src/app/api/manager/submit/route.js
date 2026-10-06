@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getDatabase, saveDatabase } from '@/lib/db';
+import { supabase } from '@/lib/supabase';
 
 export async function POST(request) {
   try {
@@ -12,19 +12,38 @@ export async function POST(request) {
       );
     }
 
-    const db = getDatabase();
-    const section = db.sections.find((s) => s.id === sectionId);
-    if (!section) {
+    // Fetch section
+    const { data: section, error: secErr } = await supabase
+      .from('sections')
+      .select('*')
+      .eq('id', sectionId)
+      .single();
+
+    if (secErr || !section) {
       return NextResponse.json(
         { success: false, message: 'Section not found' },
         { status: 404 }
       );
     }
 
-    const drafts = db.drafts[sectionId] || {};
-    const draftOutletIds = Object.keys(drafts);
+    // Get all outlets for this section to find matching drafts
+    const { data: sectionOutlets, error: outErr } = await supabase
+      .from('outlets')
+      .select('*')
+      .eq('section_id', sectionId);
 
-    if (draftOutletIds.length === 0) {
+    if (outErr) throw outErr;
+
+    const outletIds = (sectionOutlets || []).map((o) => o.id);
+
+    // Fetch drafts for this section
+    const { data: drafts, error: draftErr } = await supabase
+      .from('drafts')
+      .select('*')
+      .in('outlet_id', outletIds.length > 0 ? outletIds : ['__none__']);
+
+    if (draftErr) throw draftErr;
+    if (!drafts || drafts.length === 0) {
       return NextResponse.json(
         { success: false, message: 'No draft edits to submit for approval' },
         { status: 400 }
@@ -32,24 +51,30 @@ export async function POST(request) {
     }
 
     // Build diff of changes
-    const changes = draftOutletIds.map((outletId) => {
-      const original = db.outlets.find((o) => o.id === outletId) || {};
-      const updated = drafts[outletId];
-      
-      const diffFields = [];
-      const keysToCheck = ['name', 'venue', 'address', 'city', 'state_or_province', 'country', 'postal_code', 'phone_numbers', 'landmarks'];
-      keysToCheck.forEach((k) => {
-        if (JSON.stringify(original[k]) !== JSON.stringify(updated[k])) {
-          diffFields.push({
-            field: k,
-            old_value: original[k] ?? null,
-            new_value: updated[k] ?? null,
-          });
-        }
-      });
+    const outletMap = {};
+    (sectionOutlets || []).forEach((o) => {
+      outletMap[o.id] = o;
+    });
+
+    const keysToCheck = [
+      'name', 'venue', 'address', 'city', 'state_or_province',
+      'country', 'postal_code', 'phone_numbers', 'landmarks',
+    ];
+
+    const changes = drafts.map((d) => {
+      const original = outletMap[d.outlet_id] || {};
+      const updated = d.draft_data;
+
+      const diffFields = keysToCheck
+        .filter((k) => JSON.stringify(original[k]) !== JSON.stringify(updated[k]))
+        .map((k) => ({
+          field: k,
+          old_value: original[k] ?? null,
+          new_value: updated[k] ?? null,
+        }));
 
       return {
-        outlet_id: outletId,
+        outlet_id: d.outlet_id,
         outlet_name: updated.name || original.name,
         original,
         updated,
@@ -63,7 +88,7 @@ export async function POST(request) {
       section_id: sectionId,
       section_name: section.name,
       display_name: section.display_name,
-      submitted_by: submitterName || section.manager?.name || 'Section Coordinator',
+      submitted_by: submitterName || section.manager_name || 'Section Coordinator',
       submitted_at: new Date().toISOString(),
       status: 'pending',
       changes,
@@ -71,14 +96,20 @@ export async function POST(request) {
       reviewed_at: null,
     };
 
-    if (!db.submissions) {
-      db.submissions = [];
-    }
-    db.submissions.unshift(newSubmission);
+    // Insert submission
+    const { error: subErr } = await supabase
+      .from('submissions')
+      .insert(newSubmission);
 
-    // Clear drafts for this section
-    delete db.drafts[sectionId];
-    saveDatabase(db);
+    if (subErr) throw subErr;
+
+    // Delete drafts for this section
+    const { error: delErr } = await supabase
+      .from('drafts')
+      .delete()
+      .in('outlet_id', drafts.map((d) => d.outlet_id));
+
+    if (delErr) throw delErr;
 
     return NextResponse.json({
       success: true,
