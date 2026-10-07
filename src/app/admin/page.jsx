@@ -851,18 +851,18 @@ export default function AdminPortal() {
                         >
                           <div style={{ marginBottom: '6px' }}>
                             <span style={{ color: '#64748b' }}>Coordinator:</span>{' '}
-                            <strong>{sec.manager?.name || 'Section Coordinator'}</strong>
+                            <strong>{sec.manager_name || 'Section Coordinator'}</strong>
                           </div>
                           <div style={{ marginBottom: '6px' }}>
                             <span style={{ color: '#64748b' }}>Login Username:</span>{' '}
                             <code style={{ background: '#e2e8f0', padding: '1px 5px', borderRadius: '3px' }}>
-                              {sec.manager?.username}
+                              {sec.manager_username}
                             </code>
                           </div>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <span style={{ color: '#64748b' }}>Password:</span>{' '}
                             <code style={{ background: '#e2e8f0', padding: '1px 5px', borderRadius: '3px' }}>
-                              {showPassword[sec.id] ? sec.manager?.password : '••••••••'}
+                              {showPassword[sec.id] ? sec.manager_password : '••••••••'}
                             </code>
                             <button
                               type="button"
@@ -894,9 +894,9 @@ export default function AdminPortal() {
                             setEditingSection(sec);
                             setEditSecData({
                               display_name: sec.display_name || '',
-                              manager_name: sec.manager?.name || '',
-                              manager_username: sec.manager?.username || '',
-                              manager_password: sec.manager?.password || '',
+                              manager_name: sec.manager_name || '',
+                              manager_username: sec.manager_username || '',
+                              manager_password: sec.manager_password || '',
                             });
                           }}
                           className="portal-btn-secondary"
