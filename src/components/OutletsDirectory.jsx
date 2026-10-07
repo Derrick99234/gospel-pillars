@@ -361,16 +361,19 @@ export default function OutletsDirectory({ outletsData }) {
                         )}
                         <h4 className="list-row-title">{outlet.name}</h4>
                         {outlet.venue && (
-                          <span style={{ fontSize: '12px', color: '#0284c7', background: '#f0f9ff', padding: '2px 8px', borderRadius: '4px' }}>
-                            {outlet.venue}
+                          <span className="list-venue-tag" title="Venue / Hall">
+                            <Building2 size={12} />
+                            <span>{outlet.venue}</span>
                           </span>
                         )}
                       </div>
                       <p className="list-row-address">
-                        <MapPin size={13} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '4px' }} />
-                        {outlet.address}
-                        {outlet.city ? ` • ${outlet.city}` : ''}
-                        {outlet.country ? ` • ${outlet.country}` : ''}
+                        <MapPin size={14} className="list-address-icon" />
+                        <span>
+                          {outlet.address}
+                          {outlet.city ? ` • ${outlet.city}` : ''}
+                          {outlet.country ? ` • ${outlet.country}` : ''}
+                        </span>
                       </p>
                     </div>
 
@@ -378,11 +381,11 @@ export default function OutletsDirectory({ outletsData }) {
                       {outlet.phone_numbers && outlet.phone_numbers[0] && (
                         <a
                           href={`tel:${outlet.phone_numbers[0].replace(/[^\d+]/g, '')}`}
-                          className="phone-chip"
-                          style={{ padding: '6px 10px', fontSize: '12px' }}
+                          className="list-action-btn list-phone-btn"
+                          title={`Call ${outlet.phone_numbers[0]}`}
                         >
-                          <Phone size={12} />
-                          {outlet.phone_numbers[0]}
+                          <Phone size={13} />
+                          <span>{outlet.phone_numbers[0]}</span>
                         </a>
                       )}
                       <a
@@ -391,11 +394,12 @@ export default function OutletsDirectory({ outletsData }) {
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="phone-chip"
-                        style={{ padding: '6px 10px', fontSize: '12px', background: '#0f172a', color: '#ffffff', borderColor: '#0f172a' }}
+                        className="list-action-btn list-directions-btn"
+                        title="Get directions on Google Maps"
                       >
-                        <Navigation size={12} />
-                        Directions
+                        <Navigation size={13} />
+                        <span>Directions</span>
+                        <ExternalLink size={11} className="list-external-icon" />
                       </a>
                     </div>
                   </div>
