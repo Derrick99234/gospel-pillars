@@ -26,15 +26,40 @@ export default function OutletsDirectory({ outletsData }) {
   const outlets = outletsData.outlets || [];
   const regionsSummary = outletsData.metadata?.regions_summary || {};
 
-  const regionOptions = [
-    { key: 'ALL', label: 'All Locations', count: outlets.length },
-    { key: 'Church Locations Across Lagos', label: 'Lagos', count: regionsSummary['Church Locations Across Lagos'] || 9 },
-    { key: 'Nigeria', label: 'Nigeria', count: regionsSummary['Nigeria'] || 36 },
-    { key: 'United Kingdom', label: 'United Kingdom', count: regionsSummary['United Kingdom'] || 10 },
-    { key: 'North and South America', label: 'Americas', count: regionsSummary['North and South America'] || 8 },
-    { key: 'Asia and Europe', label: 'Asia & Europe', count: regionsSummary['Asia and Europe'] || 9 },
-    { key: 'Africa', label: 'Africa', count: regionsSummary['Africa'] || 19 },
-  ];
+  const regionOptions = useMemo(() => {
+    const list = [{ key: 'ALL', label: 'All Locations', count: outlets.length }];
+
+    // Priority ordering of official church divisions
+    const preferredOrder = [
+      { key: 'Mainland Division', label: 'Mainland' },
+      { key: 'Lagos Island Division', label: 'Island' },
+      { key: 'Central Division', label: 'Central' },
+      { key: 'South East Division', label: 'South East' },
+      { key: 'Capital Division', label: 'Capital (Abuja)' },
+      { key: 'Northern Division', label: 'Northern' },
+      { key: 'North and South America', label: 'Americas' },
+      { key: 'United Kingdom', label: 'United Kingdom' },
+      { key: 'Africa', label: 'Africa' },
+      { key: 'Asia and Europe', label: 'Asia & Europe' },
+      { key: 'Nigeria', label: 'Western / Other States' },
+    ];
+
+    preferredOrder.forEach((pref) => {
+      const count = regionsSummary[pref.key] || 0;
+      if (count > 0) {
+        list.push({ key: pref.key, label: pref.label, count });
+      }
+    });
+
+    // Add any other regions dynamically if present
+    Object.keys(regionsSummary).forEach((reg) => {
+      if (reg && !preferredOrder.some((p) => p.key === reg)) {
+        list.push({ key: reg, label: reg, count: regionsSummary[reg] || 0 });
+      }
+    });
+
+    return list;
+  }, [outlets.length, regionsSummary]);
 
   const filteredOutlets = useMemo(() => {
     return outlets.filter((item) => {
