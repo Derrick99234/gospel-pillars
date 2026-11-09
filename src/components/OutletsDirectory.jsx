@@ -89,13 +89,40 @@ export default function OutletsDirectory({ outletsData }) {
   }, [outlets, activeRegion, activeType, searchQuery]);
 
   const groupedResults = useMemo(() => {
-    const groups = {};
+    const rawGroups = {};
     filteredOutlets.forEach((item) => {
       const reg = item.region_category;
-      if (!groups[reg]) groups[reg] = [];
-      groups[reg].push(item);
+      if (!rawGroups[reg]) rawGroups[reg] = [];
+      rawGroups[reg].push(item);
     });
-    return groups;
+
+    // Enforce strict hierarchy display order
+    const orderedGroups = {};
+    const exactOrder = [
+      'Int HQ',
+      'Lagos HQ',
+      'Lagos churches',
+      'Nigerian churches',
+      'Uk/ Europe churches',
+      'American churches',
+      'Canada churches',
+      'African churches',
+    ];
+
+    exactOrder.forEach((cat) => {
+      if (rawGroups[cat] && rawGroups[cat].length > 0) {
+        orderedGroups[cat] = rawGroups[cat];
+      }
+    });
+
+    // Any remaining categories (if any)
+    Object.keys(rawGroups).forEach((cat) => {
+      if (!exactOrder.includes(cat) && rawGroups[cat].length > 0) {
+        orderedGroups[cat] = rawGroups[cat];
+      }
+    });
+
+    return orderedGroups;
   }, [filteredOutlets]);
 
   const handleCopy = (text, id, label) => {

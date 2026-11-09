@@ -104,6 +104,29 @@
       "draft_updated_at": null
     },
     {
+      "id": "int-hq-ark-of-light",
+      "index": 1,
+      "name": "Ark of Light for All Nations (Int HQ)",
+      "original_heading": "INTERNATIONAL HEADQUARTERS",
+      "region_category": "Int HQ",
+      "branch_type": "Church Branch",
+      "venue": "Ark of Light for All Nations",
+      "address": "Plot 11c Kudirat Abiola Way, Ikeja, Lagos",
+      "city": "Ikeja",
+      "state_or_province": "Lagos State",
+      "country": "Nigeria",
+      "postal_code": null,
+      "phone_numbers": [
+        "+234 906 460 0560"
+      ],
+      "landmarks": "Kudirat Abiola Way, Ikeja",
+      "raw_text": null,
+      "section_id": "int_hq",
+      "status": "approved",
+      "updated_at": "2026-11-09T06:04:06.106+00:00",
+      "draft_updated_at": null
+    },
+    {
       "id": "lagos-iju-ishaga",
       "index": 2,
       "name": "Gospel Pillars Church, Iju Ishaga",
@@ -125,6 +148,29 @@
       "status": "approved",
       "updated_at": "2026-11-09T05:40:24.059+00:00",
       "draft_updated_at": null
+    },
+    {
+      "id": "lagos-ikeja",
+      "index": 2,
+      "name": "Gospel Pillars Church, Ikeja",
+      "original_heading": "IKEJA (H4)",
+      "region_category": "Lagos churches",
+      "branch_type": "Church Branch",
+      "venue": "H4, Ark of Light for All Nations",
+      "address": "H4, Ark of Light for All Nations, 11c Kudirat Abiola Way, Ikeja, Lagos",
+      "city": "Ikeja",
+      "state_or_province": "Lagos State",
+      "country": "Nigeria",
+      "postal_code": null,
+      "phone_numbers": [
+        "+234 906 460 0560"
+      ],
+      "landmarks": "Inside Ark of Light building (H4)",
+      "raw_text": "IKEJA Ark of Light for All Nations, 11 Kudirat Abiola way Ikeja, Lagos – +234 906 460 0560",
+      "section_id": "lagos_churches",
+      "status": "approved",
+      "updated_at": "2026-11-09T06:04:07.199+00:00",
+      "draft_updated_at": "2026-10-08T08:34:34.705+00:00"
     },
     {
       "id": "lagos-ikorodu",
@@ -242,29 +288,6 @@
       "draft_updated_at": null
     },
     {
-      "id": "lagos-ikeja",
-      "index": 8,
-      "name": "Gospel Pillars Church, Ikeja",
-      "original_heading": "IKEJA (ARK OF LIGHT)",
-      "region_category": "Int HQ",
-      "branch_type": "Church Branch",
-      "venue": "H4, Ark of Light for All Nations",
-      "address": "H4, Ark of Light for All Nations, 11c Kudirat Abiola Way, Ikeja, Lagos",
-      "city": "Ikeja",
-      "state_or_province": "Lagos State",
-      "country": "Nigeria",
-      "postal_code": null,
-      "phone_numbers": [
-        "+234 906 460 0560"
-      ],
-      "landmarks": "Kudirat Abiola Way, Ikeja",
-      "raw_text": "IKEJA Ark of Light for All Nations, 11 Kudirat Abiola way Ikeja, Lagos – +234 906 460 0560",
-      "section_id": "int_hq",
-      "status": "approved",
-      "updated_at": "2026-11-09T05:40:24.06+00:00",
-      "draft_updated_at": "2026-10-08T08:34:34.705+00:00"
-    },
-    {
       "id": "lagos-lekki",
       "index": 9,
       "name": "The Hebron – Gospel Pillars Church, Lekki",
@@ -311,29 +334,6 @@
       "draft_updated_at": null
     },
     {
-      "id": "ca-alberta-edmonton",
-      "index": 11,
-      "name": "Gospel Pillars Church Edmonton, Canada",
-      "original_heading": "Gospel Pillars Church Edmonton, Canada",
-      "region_category": "Canada churches",
-      "branch_type": "Church Branch",
-      "venue": null,
-      "address": "9764 54 Ave Edmonton T6E0A9",
-      "city": "Edmonton",
-      "state_or_province": "Alberta",
-      "country": "Canada",
-      "postal_code": "T6E0A9",
-      "phone_numbers": [
-        "+1 (368) 882-1930"
-      ],
-      "landmarks": null,
-      "raw_text": "Gospel Pillars Church Edmonton, Canada 9764 54 Ave Edmonton T6E0A9 Contact: +1 (368) 882-1930",
-      "section_id": "canada_churches",
-      "status": "approved",
-      "updated_at": "2026-11-09T05:40:24.059+00:00",
-      "draft_updated_at": null
-    },
-    {
       "id": "lagos-epe",
       "index": 11,
       "name": "Gospel Pillars Church, Epe",
@@ -357,26 +357,26 @@
       "draft_updated_at": null
     },
     {
-      "id": "lagos-yaba",
-      "index": 12,
-      "name": "Gospel Pillars Church, Yaba",
-      "original_heading": "Gospel Pillars Church, Yaba",
-      "region_category": "Lagos churches",
+      "id": "ca-alberta-edmonton",
+      "index": 11,
+      "name": "Gospel Pillars Church Edmonton, Canada",
+      "original_heading": "Gospel Pillars Church Edmonton, Canada",
+      "region_category": "Canada churches",
       "branch_type": "Church Branch",
-      "venue": "Beverly Event center",
-      "address": "Beverly Event center, 33-37 Shogbamu street by New Garage Bus stop, Bariga. Lagos.",
-      "city": "Yaba / Bariga",
-      "state_or_province": "Lagos State",
-      "country": "Nigeria",
-      "postal_code": null,
+      "venue": null,
+      "address": "9764 54 Ave Edmonton T6E0A9",
+      "city": "Edmonton",
+      "state_or_province": "Alberta",
+      "country": "Canada",
+      "postal_code": "T6E0A9",
       "phone_numbers": [
-        "09063107001"
+        "+1 (368) 882-1930"
       ],
-      "landmarks": "By New Garage Bus stop, Bariga",
-      "raw_text": "YABA Beverly’s Event Center, 33-37 Shogbamu St, Somolu, Lagos. – +234 906 310 7001",
-      "section_id": "lagos_churches",
+      "landmarks": null,
+      "raw_text": "Gospel Pillars Church Edmonton, Canada 9764 54 Ave Edmonton T6E0A9 Contact: +1 (368) 882-1930",
+      "section_id": "canada_churches",
       "status": "approved",
-      "updated_at": "2026-11-09T05:40:24.06+00:00",
+      "updated_at": "2026-11-09T05:40:24.059+00:00",
       "draft_updated_at": null
     },
     {
@@ -398,6 +398,29 @@
       "section_id": "canada_churches",
       "status": "approved",
       "updated_at": "2026-11-09T05:40:24.059+00:00",
+      "draft_updated_at": null
+    },
+    {
+      "id": "lagos-yaba",
+      "index": 12,
+      "name": "Gospel Pillars Church, Yaba",
+      "original_heading": "Gospel Pillars Church, Yaba",
+      "region_category": "Lagos churches",
+      "branch_type": "Church Branch",
+      "venue": "Beverly Event center",
+      "address": "Beverly Event center, 33-37 Shogbamu street by New Garage Bus stop, Bariga. Lagos.",
+      "city": "Yaba / Bariga",
+      "state_or_province": "Lagos State",
+      "country": "Nigeria",
+      "postal_code": null,
+      "phone_numbers": [
+        "09063107001"
+      ],
+      "landmarks": "By New Garage Bus stop, Bariga",
+      "raw_text": "YABA Beverly’s Event Center, 33-37 Shogbamu St, Somolu, Lagos. – +234 906 310 7001",
+      "section_id": "lagos_churches",
+      "status": "approved",
+      "updated_at": "2026-11-09T05:40:24.06+00:00",
       "draft_updated_at": null
     },
     {
@@ -682,29 +705,6 @@
       "draft_updated_at": null
     },
     {
-      "id": "ng-edo-auchi",
-      "index": 22,
-      "name": "Gospel Pillars Campus Community Church, Auchi",
-      "original_heading": "GPCCC AUCHI",
-      "region_category": "Nigerian churches",
-      "branch_type": "Campus Fellowship",
-      "venue": null,
-      "address": "30 Old NEPA Road, behind Standard City Lodge, Auchi.",
-      "city": "Auchi",
-      "state_or_province": "Edo State",
-      "country": "Nigeria",
-      "postal_code": null,
-      "phone_numbers": [
-        "09031959081"
-      ],
-      "landmarks": "Behind Standard City Lodge",
-      "raw_text": null,
-      "section_id": "nigerian_churches",
-      "status": "approved",
-      "updated_at": "2026-11-09T05:40:24.06+00:00",
-      "draft_updated_at": null
-    },
-    {
       "id": "uk-london-hackney-tomlinson",
       "index": 22,
       "name": "Gospel Pillars Church, The Tomlinson Centre, London",
@@ -726,6 +726,29 @@
       "section_id": "uk_europe_churches",
       "status": "approved",
       "updated_at": "2026-11-09T05:40:24.059+00:00",
+      "draft_updated_at": null
+    },
+    {
+      "id": "ng-edo-auchi",
+      "index": 22,
+      "name": "Gospel Pillars Campus Community Church, Auchi",
+      "original_heading": "GPCCC AUCHI",
+      "region_category": "Nigerian churches",
+      "branch_type": "Campus Fellowship",
+      "venue": null,
+      "address": "30 Old NEPA Road, behind Standard City Lodge, Auchi.",
+      "city": "Auchi",
+      "state_or_province": "Edo State",
+      "country": "Nigeria",
+      "postal_code": null,
+      "phone_numbers": [
+        "09031959081"
+      ],
+      "landmarks": "Behind Standard City Lodge",
+      "raw_text": null,
+      "section_id": "nigerian_churches",
+      "status": "approved",
+      "updated_at": "2026-11-09T05:40:24.06+00:00",
       "draft_updated_at": null
     },
     {
@@ -777,30 +800,6 @@
       "draft_updated_at": null
     },
     {
-      "id": "ng-delta-effurun",
-      "index": 24,
-      "name": "Gospel Pillars Church, Effurun",
-      "original_heading": "GPC EFFURUN",
-      "region_category": "Nigerian churches",
-      "branch_type": "Church Branch",
-      "venue": "Globe Space Civic Centre",
-      "address": "Globe Space Civic Centre, 121 Uti Street, off PTI Road, Effurun.",
-      "city": "Effurun",
-      "state_or_province": "Delta State",
-      "country": "Nigeria",
-      "postal_code": null,
-      "phone_numbers": [
-        "08051560153",
-        "08145350622"
-      ],
-      "landmarks": "Off PTI Road",
-      "raw_text": "GOSPEL PILLARS CHURCH, EFFURUN lobe Space Civic Center 121 Uti Street, Off PTI road Effurun. Enquires : 08067169677, 07011163632",
-      "section_id": "nigerian_churches",
-      "status": "approved",
-      "updated_at": "2026-11-09T05:40:24.06+00:00",
-      "draft_updated_at": null
-    },
-    {
       "id": "uk-middlesbrough",
       "index": 24,
       "name": "Gospel Pillars Church, Middlesbrough",
@@ -822,6 +821,30 @@
       "section_id": "uk_europe_churches",
       "status": "approved",
       "updated_at": "2026-11-09T05:40:24.059+00:00",
+      "draft_updated_at": null
+    },
+    {
+      "id": "ng-delta-effurun",
+      "index": 24,
+      "name": "Gospel Pillars Church, Effurun",
+      "original_heading": "GPC EFFURUN",
+      "region_category": "Nigerian churches",
+      "branch_type": "Church Branch",
+      "venue": "Globe Space Civic Centre",
+      "address": "Globe Space Civic Centre, 121 Uti Street, off PTI Road, Effurun.",
+      "city": "Effurun",
+      "state_or_province": "Delta State",
+      "country": "Nigeria",
+      "postal_code": null,
+      "phone_numbers": [
+        "08051560153",
+        "08145350622"
+      ],
+      "landmarks": "Off PTI Road",
+      "raw_text": "GOSPEL PILLARS CHURCH, EFFURUN lobe Space Civic Center 121 Uti Street, Off PTI road Effurun. Enquires : 08067169677, 07011163632",
+      "section_id": "nigerian_churches",
+      "status": "approved",
+      "updated_at": "2026-11-09T05:40:24.06+00:00",
       "draft_updated_at": null
     },
     {
@@ -849,29 +872,6 @@
       "draft_updated_at": null
     },
     {
-      "id": "ng-delta-sapele",
-      "index": 26,
-      "name": "Gospel Pillars Church, Sapele",
-      "original_heading": "GPC SAPELE",
-      "region_category": "Nigerian churches",
-      "branch_type": "Church Branch",
-      "venue": null,
-      "address": "50 Ajogodo Road, Sapele, Delta State.",
-      "city": "Sapele",
-      "state_or_province": "Delta State",
-      "country": "Nigeria",
-      "postal_code": null,
-      "phone_numbers": [
-        "09038110642"
-      ],
-      "landmarks": null,
-      "raw_text": "Gospel pillars church Sapele 50 Ajogodo Sapele Warri road,by okpe Road junction 09038110642",
-      "section_id": "nigerian_churches",
-      "status": "approved",
-      "updated_at": "2026-11-09T05:40:24.06+00:00",
-      "draft_updated_at": null
-    },
-    {
       "id": "uk-liverpool",
       "index": 26,
       "name": "Gospel Pillars Church, Liverpool",
@@ -893,6 +893,29 @@
       "section_id": "uk_europe_churches",
       "status": "approved",
       "updated_at": "2026-11-09T05:40:24.059+00:00",
+      "draft_updated_at": null
+    },
+    {
+      "id": "ng-delta-sapele",
+      "index": 26,
+      "name": "Gospel Pillars Church, Sapele",
+      "original_heading": "GPC SAPELE",
+      "region_category": "Nigerian churches",
+      "branch_type": "Church Branch",
+      "venue": null,
+      "address": "50 Ajogodo Road, Sapele, Delta State.",
+      "city": "Sapele",
+      "state_or_province": "Delta State",
+      "country": "Nigeria",
+      "postal_code": null,
+      "phone_numbers": [
+        "09038110642"
+      ],
+      "landmarks": null,
+      "raw_text": "Gospel pillars church Sapele 50 Ajogodo Sapele Warri road,by okpe Road junction 09038110642",
+      "section_id": "nigerian_churches",
+      "status": "approved",
+      "updated_at": "2026-11-09T05:40:24.06+00:00",
       "draft_updated_at": null
     },
     {
@@ -967,29 +990,6 @@
       "draft_updated_at": null
     },
     {
-      "id": "be-antwerp",
-      "index": 29,
-      "name": "Gospel Pillars Church, Antwerp, Belgium",
-      "original_heading": "Gospel pillars church Belgium",
-      "region_category": "Uk/ Europe churches",
-      "branch_type": "Church Branch",
-      "venue": null,
-      "address": "Lodewijk Koninckstraat 12 Antwerp City Belgium",
-      "city": "Antwerp",
-      "state_or_province": null,
-      "country": "Belgium",
-      "postal_code": null,
-      "phone_numbers": [
-        "+32465612983"
-      ],
-      "landmarks": null,
-      "raw_text": "Gospel pillars church Belgium Lodewijk Koninckstraat 12 Antwerp City Belgium Contact: +32465612983",
-      "section_id": "uk_europe_churches",
-      "status": "approved",
-      "updated_at": "2026-11-09T05:40:24.059+00:00",
-      "draft_updated_at": null
-    },
-    {
       "id": "ng-delta-asaba",
       "index": 29,
       "name": "Gospel Pillars Church, Asaba",
@@ -1013,23 +1013,23 @@
       "draft_updated_at": null
     },
     {
-      "id": "cy-lefkosa",
-      "index": 30,
-      "name": "Gospel Pillars Church, Lefkoşa, North Cyprus",
-      "original_heading": "Gospel Pillars Church Cyprus",
+      "id": "be-antwerp",
+      "index": 29,
+      "name": "Gospel Pillars Church, Antwerp, Belgium",
+      "original_heading": "Gospel pillars church Belgium",
       "region_category": "Uk/ Europe churches",
       "branch_type": "Church Branch",
       "venue": null,
-      "address": "20 Sk, Behind Isil Mobilya, Opposite Gench TV, Sanayi, Lefkosa, North Cyprus.",
-      "city": "Lefkoşa (Nicosia)",
+      "address": "Lodewijk Koninckstraat 12 Antwerp City Belgium",
+      "city": "Antwerp",
       "state_or_province": null,
-      "country": "North Cyprus",
+      "country": "Belgium",
       "postal_code": null,
       "phone_numbers": [
-        "+905338870641"
+        "+32465612983"
       ],
-      "landmarks": "Behind Isil Mobilya, Opposite Gench TV, Sanayi",
-      "raw_text": "Gospel Pillars Church Cyprus 20 Sk, Behind Isil Mobilya, Opposite Gench TV, Sanayi, Lefkosa, North Cyprus. Contact: +905338870641",
+      "landmarks": null,
+      "raw_text": "Gospel pillars church Belgium Lodewijk Koninckstraat 12 Antwerp City Belgium Contact: +32465612983",
       "section_id": "uk_europe_churches",
       "status": "approved",
       "updated_at": "2026-11-09T05:40:24.059+00:00",
@@ -1056,6 +1056,29 @@
       "section_id": "nigerian_churches",
       "status": "approved",
       "updated_at": "2026-11-09T05:40:24.06+00:00",
+      "draft_updated_at": null
+    },
+    {
+      "id": "cy-lefkosa",
+      "index": 30,
+      "name": "Gospel Pillars Church, Lefkoşa, North Cyprus",
+      "original_heading": "Gospel Pillars Church Cyprus",
+      "region_category": "Uk/ Europe churches",
+      "branch_type": "Church Branch",
+      "venue": null,
+      "address": "20 Sk, Behind Isil Mobilya, Opposite Gench TV, Sanayi, Lefkosa, North Cyprus.",
+      "city": "Lefkoşa (Nicosia)",
+      "state_or_province": null,
+      "country": "North Cyprus",
+      "postal_code": null,
+      "phone_numbers": [
+        "+905338870641"
+      ],
+      "landmarks": "Behind Isil Mobilya, Opposite Gench TV, Sanayi",
+      "raw_text": "Gospel Pillars Church Cyprus 20 Sk, Behind Isil Mobilya, Opposite Gench TV, Sanayi, Lefkosa, North Cyprus. Contact: +905338870641",
+      "section_id": "uk_europe_churches",
+      "status": "approved",
+      "updated_at": "2026-11-09T05:40:24.059+00:00",
       "draft_updated_at": null
     },
     {
@@ -1105,6 +1128,29 @@
       "draft_updated_at": null
     },
     {
+      "id": "ng-enugu-nsukka-unn",
+      "index": 32,
+      "name": "Gospel Pillars Campus Fellowship, UNN",
+      "original_heading": "GPCF UNN",
+      "region_category": "Nigerian churches",
+      "branch_type": "Campus Fellowship",
+      "venue": "Roar Hub",
+      "address": "Roar Hub, beside Faculty of Arts Lecture Theatre, University of Nigeria, Nsukka.",
+      "city": "Nsukka",
+      "state_or_province": "Enugu State",
+      "country": "Nigeria",
+      "postal_code": null,
+      "phone_numbers": [
+        "+234 901 516 5848"
+      ],
+      "landmarks": "Beside Faculty of Arts Lecture Theatre, UNN",
+      "raw_text": "Gospel pillars campus fellowship UNN ROAR HUB, beside FASA Hall UNN Enquiries: 08083112818, +234 815 350 0537",
+      "section_id": "nigerian_churches",
+      "status": "approved",
+      "updated_at": "2026-11-09T05:40:24.06+00:00",
+      "draft_updated_at": null
+    },
+    {
       "id": "ph-cavite-silang",
       "index": 32,
       "name": "Gospel Pillars Church, Silang, Cavite, Philippines",
@@ -1129,29 +1175,6 @@
       "draft_updated_at": null
     },
     {
-      "id": "ng-enugu-nsukka-unn",
-      "index": 32,
-      "name": "Gospel Pillars Campus Fellowship, UNN",
-      "original_heading": "GPCF UNN",
-      "region_category": "Nigerian churches",
-      "branch_type": "Campus Fellowship",
-      "venue": "Roar Hub",
-      "address": "Roar Hub, beside Faculty of Arts Lecture Theatre, University of Nigeria, Nsukka.",
-      "city": "Nsukka",
-      "state_or_province": "Enugu State",
-      "country": "Nigeria",
-      "postal_code": null,
-      "phone_numbers": [
-        "+234 901 516 5848"
-      ],
-      "landmarks": "Beside Faculty of Arts Lecture Theatre, UNN",
-      "raw_text": "Gospel pillars campus fellowship UNN ROAR HUB, beside FASA Hall UNN Enquiries: 08083112818, +234 815 350 0537",
-      "section_id": "nigerian_churches",
-      "status": "approved",
-      "updated_at": "2026-11-09T05:40:24.06+00:00",
-      "draft_updated_at": null
-    },
-    {
       "id": "ng-rivers-port-harcourt-rumuomasi",
       "index": 33,
       "name": "Gospel Pillars Church, Port Harcourt",
@@ -1169,29 +1192,6 @@
       ],
       "landmarks": "Behind Yakubu Gowon Stadium Rumuomasi",
       "raw_text": "Gospel pillars church, portharcourt, Rivers State, 3 Adele Street, Behind Gowon stadium, Rumuomasi, Portharcourt, Rivers state. Phone: 09033645305, 08100092580",
-      "section_id": "nigerian_churches",
-      "status": "approved",
-      "updated_at": "2026-11-09T05:40:24.06+00:00",
-      "draft_updated_at": null
-    },
-    {
-      "id": "ng-imo-owerri",
-      "index": 34,
-      "name": "Gospel Pillars Church, Owerri",
-      "original_heading": "GPC OWERRI",
-      "region_category": "Nigerian churches",
-      "branch_type": "Church Branch",
-      "venue": null,
-      "address": "23 Wetheral Road, Opposite Cherubim Junction, Owerri.",
-      "city": "Owerri",
-      "state_or_province": "Imo State",
-      "country": "Nigeria",
-      "postal_code": null,
-      "phone_numbers": [
-        "07034299590"
-      ],
-      "landmarks": "Opposite Cherubim Junction",
-      "raw_text": "Gospel Pillars Church Owerri, Imo State 23 Wetheral road by Cherubim junction Phone: 07071505701",
       "section_id": "nigerian_churches",
       "status": "approved",
       "updated_at": "2026-11-09T05:40:24.06+00:00",
@@ -1221,6 +1221,29 @@
       "draft_updated_at": null
     },
     {
+      "id": "ng-imo-owerri",
+      "index": 34,
+      "name": "Gospel Pillars Church, Owerri",
+      "original_heading": "GPC OWERRI",
+      "region_category": "Nigerian churches",
+      "branch_type": "Church Branch",
+      "venue": null,
+      "address": "23 Wetheral Road, Opposite Cherubim Junction, Owerri.",
+      "city": "Owerri",
+      "state_or_province": "Imo State",
+      "country": "Nigeria",
+      "postal_code": null,
+      "phone_numbers": [
+        "07034299590"
+      ],
+      "landmarks": "Opposite Cherubim Junction",
+      "raw_text": "Gospel Pillars Church Owerri, Imo State 23 Wetheral road by Cherubim junction Phone: 07071505701",
+      "section_id": "nigerian_churches",
+      "status": "approved",
+      "updated_at": "2026-11-09T05:40:24.06+00:00",
+      "draft_updated_at": null
+    },
+    {
       "id": "ng-abia-aba",
       "index": 35,
       "name": "Gospel Pillars Church, Aba",
@@ -1238,6 +1261,29 @@
       ],
       "landmarks": "Mobison Towers",
       "raw_text": "Gospel Pillars Church, Aba, Abia State, 34 faulks Road,3rd Floor Moabisson Tower, Abia State Phone: 08165002193",
+      "section_id": "nigerian_churches",
+      "status": "approved",
+      "updated_at": "2026-11-09T05:40:24.06+00:00",
+      "draft_updated_at": null
+    },
+    {
+      "id": "ng-bayelsa-yenagoa",
+      "index": 36,
+      "name": "Gospel Pillars Church, Bayelsa",
+      "original_heading": "GPC BAYELSA",
+      "region_category": "Nigerian churches",
+      "branch_type": "Church Branch",
+      "venue": null,
+      "address": "82 Otiotio Road Yenagoa.",
+      "city": "Yenagoa",
+      "state_or_province": "Bayelsa State",
+      "country": "Nigeria",
+      "postal_code": null,
+      "phone_numbers": [
+        "08134295210"
+      ],
+      "landmarks": "Otiotio Road",
+      "raw_text": "Gospel Pillars Church Bayelsa 82 Otiotio Road, Yenagoa. 08134295210, 09031458008",
       "section_id": "nigerian_churches",
       "status": "approved",
       "updated_at": "2026-11-09T05:40:24.06+00:00",
@@ -1264,29 +1310,6 @@
       "section_id": "african_churches",
       "status": "approved",
       "updated_at": "2026-11-09T05:40:24.059+00:00",
-      "draft_updated_at": null
-    },
-    {
-      "id": "ng-bayelsa-yenagoa",
-      "index": 36,
-      "name": "Gospel Pillars Church, Bayelsa",
-      "original_heading": "GPC BAYELSA",
-      "region_category": "Nigerian churches",
-      "branch_type": "Church Branch",
-      "venue": null,
-      "address": "82 Otiotio Road Yenagoa.",
-      "city": "Yenagoa",
-      "state_or_province": "Bayelsa State",
-      "country": "Nigeria",
-      "postal_code": null,
-      "phone_numbers": [
-        "08134295210"
-      ],
-      "landmarks": "Otiotio Road",
-      "raw_text": "Gospel Pillars Church Bayelsa 82 Otiotio Road, Yenagoa. 08134295210, 09031458008",
-      "section_id": "nigerian_churches",
-      "status": "approved",
-      "updated_at": "2026-11-09T05:40:24.06+00:00",
       "draft_updated_at": null
     },
     {
@@ -1451,29 +1474,6 @@
       "draft_updated_at": null
     },
     {
-      "id": "gh-accra-ring-road",
-      "index": 43,
-      "name": "Gospel Pillars Church, Accra, Ghana (Circle Ring Road)",
-      "original_heading": "Gospel Pillars Church, Accra, Ghana",
-      "region_category": "African churches",
-      "branch_type": "Church Branch",
-      "venue": null,
-      "address": "Circle Ring Road Central, Accra Opposite Provident Tower, same building as Ernest Chemist",
-      "city": "Accra",
-      "state_or_province": null,
-      "country": "Ghana",
-      "postal_code": null,
-      "phone_numbers": [
-        "+233552645103"
-      ],
-      "landmarks": "Opposite Provident Tower, same building as Ernest Chemist, Circle Ring Road Central",
-      "raw_text": "Gospel Pillars Church, Accra, Ghana Circle Ring Road Central, Accra Opposite Provident Tower, same building as Ernest Chemist Phone: +233552645103",
-      "section_id": "african_churches",
-      "status": "approved",
-      "updated_at": "2026-11-09T05:40:24.059+00:00",
-      "draft_updated_at": null
-    },
-    {
       "id": "ng-niger-minna",
       "index": 43,
       "name": "Gospel Pillars Church, Minna",
@@ -1494,6 +1494,29 @@
       "section_id": "nigerian_churches",
       "status": "approved",
       "updated_at": "2026-11-09T05:40:24.06+00:00",
+      "draft_updated_at": null
+    },
+    {
+      "id": "gh-accra-ring-road",
+      "index": 43,
+      "name": "Gospel Pillars Church, Accra, Ghana (Circle Ring Road)",
+      "original_heading": "Gospel Pillars Church, Accra, Ghana",
+      "region_category": "African churches",
+      "branch_type": "Church Branch",
+      "venue": null,
+      "address": "Circle Ring Road Central, Accra Opposite Provident Tower, same building as Ernest Chemist",
+      "city": "Accra",
+      "state_or_province": null,
+      "country": "Ghana",
+      "postal_code": null,
+      "phone_numbers": [
+        "+233552645103"
+      ],
+      "landmarks": "Opposite Provident Tower, same building as Ernest Chemist, Circle Ring Road Central",
+      "raw_text": "Gospel Pillars Church, Accra, Ghana Circle Ring Road Central, Accra Opposite Provident Tower, same building as Ernest Chemist Phone: +233552645103",
+      "section_id": "african_churches",
+      "status": "approved",
+      "updated_at": "2026-11-09T05:40:24.059+00:00",
       "draft_updated_at": null
     },
     {
@@ -2027,29 +2050,6 @@
       "draft_updated_at": null
     },
     {
-      "id": "ng-ogun-ago-iwoye-oou",
-      "index": 62,
-      "name": "Gospel Pillars Campus Fellowship, Olabisi Onabanjo University (OOU), Ogun State",
-      "original_heading": "Gospel Pillars Campus Fellowship, Olabisi Onabanjo University, Ogun State",
-      "region_category": "Nigerian churches",
-      "branch_type": "Campus Fellowship",
-      "venue": null,
-      "address": "",
-      "city": "Ago-Iwoye",
-      "state_or_province": "Ogun State",
-      "country": "Nigeria",
-      "postal_code": null,
-      "phone_numbers": [
-        "08032714269"
-      ],
-      "landmarks": null,
-      "raw_text": "Gospel Pillars Campus Fellowship, Olabisi Onabanjo University, Ogun State Phone: 08032714269",
-      "section_id": "nigerian_churches",
-      "status": "approved",
-      "updated_at": "2026-11-09T05:40:24.059+00:00",
-      "draft_updated_at": null
-    },
-    {
       "id": "za-gauteng-pretoria-nana-sita",
       "index": 62,
       "name": "Gospel Pillars Church, Pretoria",
@@ -2073,23 +2073,23 @@
       "draft_updated_at": null
     },
     {
-      "id": "ng-osun-ile-ife-oau",
-      "index": 63,
-      "name": "Gospel Pillars Campus Fellowship, Obafemi Awolowo University (OAU), Osun State",
-      "original_heading": "Gospel Pillars Campus Fellowship, Obafemi Awolowo University, Osun State",
+      "id": "ng-ogun-ago-iwoye-oou",
+      "index": 62,
+      "name": "Gospel Pillars Campus Fellowship, Olabisi Onabanjo University (OOU), Ogun State",
+      "original_heading": "Gospel Pillars Campus Fellowship, Olabisi Onabanjo University, Ogun State",
       "region_category": "Nigerian churches",
       "branch_type": "Campus Fellowship",
       "venue": null,
       "address": "",
-      "city": "Ile-Ife",
-      "state_or_province": "Osun State",
+      "city": "Ago-Iwoye",
+      "state_or_province": "Ogun State",
       "country": "Nigeria",
       "postal_code": null,
       "phone_numbers": [
-        "08162529785"
+        "08032714269"
       ],
       "landmarks": null,
-      "raw_text": "Gospel Pillars Campus Fellowship, Obafemi Awolowo University, Osun State Phone: 08162529785",
+      "raw_text": "Gospel Pillars Campus Fellowship, Olabisi Onabanjo University, Ogun State Phone: 08032714269",
       "section_id": "nigerian_churches",
       "status": "approved",
       "updated_at": "2026-11-09T05:40:24.059+00:00",
@@ -2116,6 +2116,29 @@
       "section_id": "african_churches",
       "status": "approved",
       "updated_at": "2026-11-09T05:40:24.06+00:00",
+      "draft_updated_at": null
+    },
+    {
+      "id": "ng-osun-ile-ife-oau",
+      "index": 63,
+      "name": "Gospel Pillars Campus Fellowship, Obafemi Awolowo University (OAU), Osun State",
+      "original_heading": "Gospel Pillars Campus Fellowship, Obafemi Awolowo University, Osun State",
+      "region_category": "Nigerian churches",
+      "branch_type": "Campus Fellowship",
+      "venue": null,
+      "address": "",
+      "city": "Ile-Ife",
+      "state_or_province": "Osun State",
+      "country": "Nigeria",
+      "postal_code": null,
+      "phone_numbers": [
+        "08162529785"
+      ],
+      "landmarks": null,
+      "raw_text": "Gospel Pillars Campus Fellowship, Obafemi Awolowo University, Osun State Phone: 08162529785",
+      "section_id": "nigerian_churches",
+      "status": "approved",
+      "updated_at": "2026-11-09T05:40:24.059+00:00",
       "draft_updated_at": null
     },
     {
@@ -2257,29 +2280,6 @@
       "draft_updated_at": null
     },
     {
-      "id": "gh-kumasi-amangoase",
-      "index": 69,
-      "name": "Gospel Pillars Church, Kumasi",
-      "original_heading": "GPC KUMASI",
-      "region_category": "African churches",
-      "branch_type": "Church Branch",
-      "venue": "Silicon Hotel and Conference Centre",
-      "address": "Silicon Hotel and Conference Centre, Amangoase, Kentinkrono, Kumasi, Ghana",
-      "city": "Kumasi",
-      "state_or_province": "Ashanti Region",
-      "country": "Ghana",
-      "postal_code": null,
-      "phone_numbers": [
-        "+233534346360"
-      ],
-      "landmarks": null,
-      "raw_text": "Gospel Pillars Church, Kumasi, Ghana Ashanti Region, Kentenkrono, Amangoase, off Kumasi-Ejisu Rd. Phone: 0501812863",
-      "section_id": "african_churches",
-      "status": "approved",
-      "updated_at": "2026-11-09T05:40:24.06+00:00",
-      "draft_updated_at": null
-    },
-    {
       "id": "ng-edo-benin-osasogie",
       "index": 69,
       "name": "Gospel Pillars Campus Fellowship, Osasogie, Benin City, Edo State",
@@ -2298,6 +2298,29 @@
       "landmarks": "Along Osasogie Rd, Behind Shawarma zone, Off Benin-Lagos Expressway",
       "raw_text": "Gospel Pillars Campus Fellowship Osasogie, Benin City, Edo State Along Osasogie Rd, Behind Shawarma zone Off Benin-Lagos Expressway, Benin City Edo State. Phone: 07089991891",
       "section_id": "nigerian_churches",
+      "status": "approved",
+      "updated_at": "2026-11-09T05:40:24.06+00:00",
+      "draft_updated_at": null
+    },
+    {
+      "id": "gh-kumasi-amangoase",
+      "index": 69,
+      "name": "Gospel Pillars Church, Kumasi",
+      "original_heading": "GPC KUMASI",
+      "region_category": "African churches",
+      "branch_type": "Church Branch",
+      "venue": "Silicon Hotel and Conference Centre",
+      "address": "Silicon Hotel and Conference Centre, Amangoase, Kentinkrono, Kumasi, Ghana",
+      "city": "Kumasi",
+      "state_or_province": "Ashanti Region",
+      "country": "Ghana",
+      "postal_code": null,
+      "phone_numbers": [
+        "+233534346360"
+      ],
+      "landmarks": null,
+      "raw_text": "Gospel Pillars Church, Kumasi, Ghana Ashanti Region, Kentenkrono, Amangoase, off Kumasi-Ejisu Rd. Phone: 0501812863",
+      "section_id": "african_churches",
       "status": "approved",
       "updated_at": "2026-11-09T05:40:24.06+00:00",
       "draft_updated_at": null
