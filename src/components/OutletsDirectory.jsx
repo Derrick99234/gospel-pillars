@@ -25,9 +25,7 @@ export default function OutletsDirectory({ outletsData }) {
   const [viewMode, setViewMode] = useState('grid');
   const [toastMessage, setToastMessage] = useState(null);
   const [copiedId, setCopiedId] = useState(null);
-  const [expandedSections, setExpandedSections] = useState({
-    'Int HQ': true, // Int HQ expanded by default
-  });
+  const [expandedSections, setExpandedSections] = useState({});
 
   const toggleSection = (sectionName) => {
     setExpandedSections((prev) => ({
@@ -292,7 +290,7 @@ export default function OutletsDirectory({ outletsData }) {
           // When a user searches or filters by a specific region, automatically show content
           const isSearching = searchQuery.trim().length > 0;
           const isFiltered = activeRegion !== 'ALL';
-          const isOpen = isIntHq || isSearching || isFiltered || !!expandedSections[regionName];
+          const isOpen = isSearching || isFiltered || !!expandedSections[regionName];
 
           return (
             <div
