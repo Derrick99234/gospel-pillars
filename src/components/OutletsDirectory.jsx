@@ -50,6 +50,7 @@ export default function OutletsDirectory({ outletsData }) {
       { key: 'American churches', label: 'American Churches' },
       { key: 'Canada churches', label: 'Canada Churches' },
       { key: 'African churches', label: 'African Churches' },
+      { key: 'Asian churches', label: 'Asian Churches' },
     ];
 
     preferredOrder.forEach((pref) => {
@@ -118,6 +119,7 @@ export default function OutletsDirectory({ outletsData }) {
       'American churches',
       'Canada churches',
       'African churches',
+      'Asian churches',
     ];
 
     exactOrder.forEach((cat) => {
