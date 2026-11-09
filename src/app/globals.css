@@ -571,37 +571,121 @@ body {
 }
 
 .section-group {
-  margin-bottom: 48px;
+  margin-bottom: 24px;
 }
 
-.section-group-header {
+/* Accordion Section Card */
+.accordion-section {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.accordion-section:hover {
+  border-color: #cbd5e1;
+}
+
+.accordion-section.is-open {
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.accordion-section.is-int-hq {
+  border-color: #93c5fd;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.accordion-trigger {
+  width: 100%;
+  background: #f8fafc;
+  border: none;
+  padding: 18px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 22px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #e2e8f0;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+  user-select: none;
+}
+
+.accordion-trigger:hover {
+  background: #f1f5f9;
+}
+
+.accordion-section.is-open .accordion-trigger {
+  border-bottom: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+.accordion-title-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.accordion-hq-icon {
+  color: #2563eb;
+}
+
+.accordion-globe-icon {
+  color: #64748b;
 }
 
 .section-group-title {
   font-family: var(--font-heading);
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 700;
   color: #0f172a;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  text-transform: capitalize;
+  letter-spacing: -0.2px;
+  margin: 0;
 }
 
 .section-group-badge {
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
-  padding: 3px 10px;
+  padding: 4px 11px;
   border-radius: 9999px;
   background: #e2e8f0;
   color: #334155;
+}
+
+.accordion-trigger-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #64748b;
+}
+
+.accordion-action-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.accordion-chevron {
+  color: #0f172a;
+  transition: transform 0.2s ease;
+}
+
+.accordion-content {
+  padding: 24px;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Cards Grid */
@@ -1777,5 +1861,19 @@ html, body {
   }
   .portal-user-tag {
     display: none;
+  }
+
+  /* Accordion mobile adjustments */
+  .accordion-trigger {
+    padding: 14px 16px;
+  }
+  .section-group-title {
+    font-size: 16px;
+  }
+  .accordion-action-text {
+    display: none;
+  }
+  .accordion-content {
+    padding: 16px 12px;
   }
 }

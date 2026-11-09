@@ -12,7 +12,10 @@ import {
   Compass,
   Grid,
   List,
-  Building2
+  Building2,
+  ChevronDown,
+  ChevronUp,
+  Globe
 } from 'lucide-react';
 
 export default function OutletsDirectory({ outletsData }) {
@@ -22,6 +25,16 @@ export default function OutletsDirectory({ outletsData }) {
   const [viewMode, setViewMode] = useState('grid');
   const [toastMessage, setToastMessage] = useState(null);
   const [copiedId, setCopiedId] = useState(null);
+  const [expandedSections, setExpandedSections] = useState({
+    'Int HQ': true, // Int HQ expanded by default
+  });
+
+  const toggleSection = (sectionName) => {
+    setExpandedSections((prev) => ({
+      ...prev,
+      [sectionName]: !prev[sectionName],
+    }));
+  };
 
   const outlets = outletsData.outlets || [];
   const regionsSummary = outletsData.metadata?.regions_summary || {};
@@ -273,190 +286,211 @@ export default function OutletsDirectory({ outletsData }) {
           </div>
         )}
 
-        {/* Display Grouped Results */}
-        {Object.entries(groupedResults).map(([regionName, items]) => (
-          <div key={regionName} className="section-group">
-            <div className="section-group-header">
-              <h3 className="section-group-title">
-                {regionName}
-                <span className="section-group-badge">{items.length}</span>
-              </h3>
-            </div>
+        {/* Display Grouped Results with Accordion Drill-down */}
+        {Object.entries(groupedResults).map(([regionName, items]) => {
+          const isIntHq = regionName === 'Int HQ';
+          // When a user searches or filters by a specific region, automatically show content
+          const isSearching = searchQuery.trim().length > 0;
+          const isFiltered = activeRegion !== 'ALL';
+          const isOpen = isIntHq || isSearching || isFiltered || !!expandedSections[regionName];
 
-            {viewMode === 'grid' ? (
-              <div className="outlets-grid">
-                {items.map((outlet) => (
-                  <article key={outlet.id} className="outlet-card">
-                    <div className="card-top">
-                      <div className="card-badges-row">
-                        <span className="badge-region">{outlet.city || outlet.country}</span>
-                        {outlet.branch_type && outlet.branch_type !== 'Church Branch' && (
-                          <span
-                            className={`badge-type ${
-                              outlet.branch_type === 'Campus Fellowship'
-                                ? 'campus'
-                                : 'community'
-                            }`}
-                          >
-                            {outlet.branch_type}
-                          </span>
-                        )}
-                      </div>
+          return (
+            <div
+              key={regionName}
+              className={`section-group accordion-section ${isOpen ? 'is-open' : 'is-closed'} ${isIntHq ? 'is-int-hq' : ''}`}
+            >
+              <button
+                type="button"
+                className="section-group-header accordion-trigger"
+                onClick={() => toggleSection(regionName)}
+                aria-expanded={isOpen}
+              >
+                <div className="accordion-title-left">
+                  <Globe size={18} className="accordion-globe-icon" />
+                  <h3 className="section-group-title">
+                    {regionName}
+                  </h3>
+                  <span className="section-group-badge">
+                    {items.length} {items.length === 1 ? 'chapter' : 'chapters'}
+                  </span>
+                </div>
 
-                      <h4 className="outlet-name">{outlet.name}</h4>
+                <div className="accordion-trigger-right">
+                  <span className="accordion-action-text">
+                    {isOpen ? 'Click to collapse' : 'Click to view chapters'}
+                  </span>
+                  {isOpen ? (
+                    <ChevronUp size={20} className="accordion-chevron" />
+                  ) : (
+                    <ChevronDown size={20} className="accordion-chevron" />
+                  )}
+                </div>
+              </button>
 
-                      {outlet.venue && (
-                        <div className="venue-tag" title="Venue / Hall">
-                          <Building2 size={13} />
-                          <span>{outlet.venue}</span>
-                        </div>
-                      )}
-
-                      <div className="address-row">
-                        <MapPin size={16} className="address-icon" />
-                        <span>{outlet.address}</span>
-                      </div>
-
-                      {outlet.landmarks && (
-                        <div className="landmarks-box">
-                          <strong>Note / Landmark:</strong> {outlet.landmarks}
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="card-bottom">
-                      {/* Phone Numbers */}
-                      {outlet.phone_numbers && outlet.phone_numbers.length > 0 ? (
-                        <div className="phone-list">
-                          {outlet.phone_numbers.map((phone, pIdx) => {
-                            const cleanTel = phone.replace(/[^\d+]/g, '');
-                            return (
-                              <div key={pIdx} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                                <a
-                                  href={`tel:${cleanTel}`}
-                                  className="phone-chip"
-                                  title={`Call ${phone}`}
+              {isOpen && (
+                <div className="accordion-content">
+                  {viewMode === 'grid' ? (
+                    <div className="outlets-grid">
+                      {items.map((outlet) => (
+                        <article key={outlet.id} className="outlet-card">
+                          <div className="card-top">
+                            <div className="card-badges-row">
+                              <span className="badge-region">{outlet.city || outlet.country}</span>
+                              {outlet.branch_type && outlet.branch_type !== 'Church Branch' && (
+                                <span
+                                  className={`badge-type ${outlet.branch_type === 'Campus Fellowship'
+                                      ? 'campus'
+                                      : 'community'
+                                    }`}
                                 >
-                                  <Phone size={13} />
-                                  <span>{phone}</span>
-                                </a>
-                                <button
-                                  type="button"
-                                  onClick={() => handleCopy(phone, `${outlet.id}-${pIdx}`, 'Phone')}
-                                  style={{
-                                    background: '#f1f5f9',
-                                    border: '1px solid #cbd5e1',
-                                    padding: '6px 8px',
-                                    borderRadius: '6px',
-                                    cursor: 'pointer',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    color: '#475569',
-                                    transition: 'all 0.15s ease'
-                                  }}
-                                  title="Copy phone number"
-                                >
-                                  {copiedId === `${outlet.id}-${pIdx}` ? (
-                                    <Check size={13} color="#16a34a" />
-                                  ) : (
-                                    <Copy size={13} />
-                                  )}
-                                </button>
+                                  {outlet.branch_type}
+                                </span>
+                              )}
+                            </div>
+
+                            <h4 className="outlet-name">{outlet.name}</h4>
+
+                            <div className="address-row">
+                              <MapPin size={16} className="address-icon" />
+                              <span>{outlet.address}</span>
+                            </div>
+
+                            {outlet.landmarks && (
+                              <div className="landmarks-box">
+                                <strong>Note / Landmark:</strong> {outlet.landmarks}
                               </div>
-                            );
-                          })}
+                            )}
+                          </div>
+
+                          <div className="card-bottom">
+                            {/* Phone Numbers */}
+                            {outlet.phone_numbers && outlet.phone_numbers.length > 0 ? (
+                              <div className="phone-list">
+                                {outlet.phone_numbers.map((phone, pIdx) => {
+                                  const cleanTel = phone.replace(/[^\d+]/g, '');
+                                  return (
+                                    <div key={pIdx} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                                      <a
+                                        href={`tel:${cleanTel}`}
+                                        className="phone-chip"
+                                        title={`Call ${phone}`}
+                                      >
+                                        <Phone size={13} />
+                                        <span>{phone}</span>
+                                      </a>
+                                      <button
+                                        type="button"
+                                        onClick={() => handleCopy(phone, `${outlet.id}-${pIdx}`, 'Phone')}
+                                        style={{
+                                          background: '#f1f5f9',
+                                          border: '1px solid #cbd5e1',
+                                          padding: '6px 8px',
+                                          borderRadius: '6px',
+                                          cursor: 'pointer',
+                                          display: 'flex',
+                                          alignItems: 'center',
+                                          justifyContent: 'center',
+                                          color: '#475569',
+                                          transition: 'all 0.15s ease'
+                                        }}
+                                        title="Copy phone number"
+                                      >
+                                        {copiedId === `${outlet.id}-${pIdx}` ? (
+                                          <Check size={13} color="#16a34a" />
+                                        ) : (
+                                          <Copy size={13} />
+                                        )}
+                                      </button>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            ) : (
+                              <span style={{ fontSize: '13px', color: '#94a3b8', fontStyle: 'italic' }}>
+                                Contact via Gospel Pillars Central Office
+                              </span>
+                            )}
+
+                            {/* Google Maps Directions */}
+                            <a
+                              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                                `${outlet.name}, ${outlet.address}`
+                              )}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="btn-directions"
+                            >
+                              <Navigation size={13} />
+                              Get Directions
+                              <ExternalLink size={11} style={{ marginLeft: 'auto' }} />
+                            </a>
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  ) : (
+                    /* List View Mode */
+                    <div className="outlets-list-view">
+                      {items.map((outlet) => (
+                        <div key={outlet.id} className="outlet-list-row">
+                          <div className="list-row-main">
+                            <div className="list-row-title-bar">
+                              {outlet.branch_type && outlet.branch_type !== 'Church Branch' && (
+                                <span
+                                  className={`badge-type ${outlet.branch_type === 'Campus Fellowship'
+                                      ? 'campus'
+                                      : 'community'
+                                    }`}
+                                >
+                                  {outlet.branch_type}
+                                </span>
+                              )}
+                              <h4 className="list-row-title">{outlet.name}</h4>
+                            </div>
+                            <p className="list-row-address">
+                              <MapPin size={14} className="list-address-icon" />
+                              <span>
+                                {outlet.address}
+                                {outlet.city ? ` • ${outlet.city}` : ''}
+                                {outlet.country ? ` • ${outlet.country}` : ''}
+                              </span>
+                            </p>
+                          </div>
+
+                          <div className="list-row-actions">
+                            {outlet.phone_numbers && outlet.phone_numbers[0] && (
+                              <a
+                                href={`tel:${outlet.phone_numbers[0].replace(/[^\d+]/g, '')}`}
+                                className="list-action-btn list-phone-btn"
+                                title={`Call ${outlet.phone_numbers[0]}`}
+                              >
+                                <Phone size={13} />
+                                <span>{outlet.phone_numbers[0]}</span>
+                              </a>
+                            )}
+                            <a
+                              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                                `${outlet.name}, ${outlet.address}`
+                              )}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="list-action-btn list-directions-btn"
+                              title="Get directions on Google Maps"
+                            >
+                              <Navigation size={13} />
+                              <span>Directions</span>
+                              <ExternalLink size={11} className="list-external-icon" />
+                            </a>
+                          </div>
                         </div>
-                      ) : (
-                        <span style={{ fontSize: '13px', color: '#94a3b8', fontStyle: 'italic' }}>
-                          Contact via Gospel Pillars Central Office
-                        </span>
-                      )}
-
-                      {/* Google Maps Directions */}
-                      <a
-                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                          `${outlet.name}, ${outlet.address}`
-                        )}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-directions"
-                      >
-                        <Navigation size={13} />
-                        Get Directions
-                        <ExternalLink size={11} style={{ marginLeft: 'auto' }} />
-                      </a>
+                      ))}
                     </div>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              /* List View Mode */
-              <div className="outlets-list-view">
-                {items.map((outlet) => (
-                  <div key={outlet.id} className="outlet-list-row">
-                    <div className="list-row-main">
-                      <div className="list-row-title-bar">
-                        {outlet.branch_type && outlet.branch_type !== 'Church Branch' && (
-                          <span
-                            className={`badge-type ${
-                              outlet.branch_type === 'Campus Fellowship'
-                                ? 'campus'
-                                : 'community'
-                            }`}
-                          >
-                            {outlet.branch_type}
-                          </span>
-                        )}
-                        <h4 className="list-row-title">{outlet.name}</h4>
-                        {outlet.venue && (
-                          <span className="list-venue-tag" title="Venue / Hall">
-                            <Building2 size={12} />
-                            <span>{outlet.venue}</span>
-                          </span>
-                        )}
-                      </div>
-                      <p className="list-row-address">
-                        <MapPin size={14} className="list-address-icon" />
-                        <span>
-                          {outlet.address}
-                          {outlet.city ? ` • ${outlet.city}` : ''}
-                          {outlet.country ? ` • ${outlet.country}` : ''}
-                        </span>
-                      </p>
-                    </div>
-
-                    <div className="list-row-actions">
-                      {outlet.phone_numbers && outlet.phone_numbers[0] && (
-                        <a
-                          href={`tel:${outlet.phone_numbers[0].replace(/[^\d+]/g, '')}`}
-                          className="list-action-btn list-phone-btn"
-                          title={`Call ${outlet.phone_numbers[0]}`}
-                        >
-                          <Phone size={13} />
-                          <span>{outlet.phone_numbers[0]}</span>
-                        </a>
-                      )}
-                      <a
-                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                          `${outlet.name}, ${outlet.address}`
-                        )}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="list-action-btn list-directions-btn"
-                        title="Get directions on Google Maps"
-                      >
-                        <Navigation size={13} />
-                        <span>Directions</span>
-                        <ExternalLink size={11} className="list-external-icon" />
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
 
