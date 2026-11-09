@@ -29,19 +29,16 @@ export default function OutletsDirectory({ outletsData }) {
   const regionOptions = useMemo(() => {
     const list = [{ key: 'ALL', label: 'All Locations', count: outlets.length }];
 
-    // Priority ordering of official church divisions
+    // Priority ordering matching the requested 8-tier hierarchy
     const preferredOrder = [
-      { key: 'Mainland Division', label: 'Mainland' },
-      { key: 'Lagos Island Division', label: 'Island' },
-      { key: 'Central Division', label: 'Central' },
-      { key: 'South East Division', label: 'South East' },
-      { key: 'Capital Division', label: 'Capital (Abuja)' },
-      { key: 'Northern Division', label: 'Northern' },
-      { key: 'North and South America', label: 'Americas' },
-      { key: 'United Kingdom', label: 'United Kingdom' },
-      { key: 'Africa', label: 'Africa' },
-      { key: 'Asia and Europe', label: 'Asia & Europe' },
-      { key: 'Nigeria', label: 'Western / Other States' },
+      { key: 'Int HQ', label: 'Int HQ' },
+      { key: 'Lagos HQ', label: 'Lagos HQ' },
+      { key: 'Lagos churches', label: 'Lagos Churches' },
+      { key: 'Nigerian churches', label: 'Nigerian Churches' },
+      { key: 'Uk/ Europe churches', label: 'UK / Europe Churches' },
+      { key: 'American churches', label: 'American Churches' },
+      { key: 'Canada churches', label: 'Canada Churches' },
+      { key: 'African churches', label: 'African Churches' },
     ];
 
     preferredOrder.forEach((pref) => {
