@@ -309,13 +309,13 @@ export default function OutletsDirectory({ outletsData }) {
                     {regionName}
                   </h3>
                   <span className="section-group-badge">
-                    {items.length} {items.length === 1 ? 'chapter' : 'chapters'}
+                    {items.length}
                   </span>
                 </div>
 
                 <div className="accordion-trigger-right">
                   <span className="accordion-action-text">
-                    {isOpen ? 'Click to collapse' : 'Click to view chapters'}
+                    {isOpen ? 'Click to collapse' : 'Click to view'}
                   </span>
                   {isOpen ? (
                     <ChevronUp size={20} className="accordion-chevron" />
