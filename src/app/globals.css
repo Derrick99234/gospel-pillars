@@ -1895,12 +1895,12 @@ html, body {
 .hebron-hero {
   position: relative;
   background: linear-gradient(135deg, #d32f2f 0%, #c62828 50%, #b71c1c 100%);
-  min-height: 520px;
+  min-height: 580px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 80px 60px 80px 60px;
-  gap: 48px;
+  padding: 72px 48px 72px 60px;
+  gap: 24px;
 }
 
 .hebron-hero-ring {
@@ -1958,8 +1958,8 @@ html, body {
 
 .hebron-photo-grid {
   position: relative;
-  width: 340px;
-  height: 360px;
+  width: 420px;
+  height: 440px;
 }
 
 .hebron-photo {
@@ -1980,22 +1980,22 @@ html, body {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 160px;
-  height: 130px;
+  width: 200px;
+  height: 160px;
 }
 
 .hebron-photo-mid {
-  top: 110px;
+  top: 130px;
   left: 0;
-  width: 160px;
-  height: 130px;
+  width: 195px;
+  height: 160px;
 }
 
 .hebron-photo-btm {
-  top: 180px;
+  top: 220px;
   right: 0;
-  width: 160px;
-  height: 130px;
+  width: 195px;
+  height: 160px;
 }
 
 /* ── ABOUT ─────────────────────────────────────────────────────── */
@@ -2246,7 +2246,11 @@ html, body {
   }
 
   .hebron-hero-right { width: 100%; }
-  .hebron-photo-grid { width: 280px; height: 300px; margin: 0 auto; }
+  .hebron-photo-grid { width: 320px; height: 340px; margin: 0 auto; }
+
+  .hebron-photo-top  { width: 180px; height: 145px; }
+  .hebron-photo-mid  { width: 175px; height: 145px; }
+  .hebron-photo-btm  { width: 175px; height: 145px; }
 
   .hebron-about { padding: 48px 24px; }
 
