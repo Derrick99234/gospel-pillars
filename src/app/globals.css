@@ -3,7 +3,7 @@
 :root {
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  
+
   /* Brand Colors from Gospel Pillars */
   --primary-navy: #0c0e1e;
   --navy-light: #161a33;
@@ -11,7 +11,7 @@
   --brand-gold-glow: rgba(212, 175, 55, 0.25);
   --coral-accent: #e55353;
   --coral-hover: #d23b3b;
-  
+
   /* Neutral Palette */
   --bg-page: #f8fafc;
   --bg-card: #ffffff;
@@ -21,14 +21,14 @@
   --text-light: #94a3b8;
   --border-light: #e2e8f0;
   --border-subtle: #f1f5f9;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
   --shadow-card: 0 4px 20px -2px rgba(12, 14, 30, 0.06);
   --shadow-card-hover: 0 12px 30px -4px rgba(12, 14, 30, 0.12);
-  
+
   /* Badges */
   --badge-church-bg: #eff6ff;
   --badge-church-text: #1d4ed8;
@@ -427,6 +427,7 @@ body {
 .simple-region-nav::-webkit-scrollbar {
   height: 4px;
 }
+
 .simple-region-nav::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 4px;
@@ -682,6 +683,7 @@ body {
     opacity: 0;
     transform: translateY(-4px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1337,7 +1339,9 @@ body {
   margin-bottom: 6px;
 }
 
-.portal-input, .portal-textarea, .portal-select {
+.portal-input,
+.portal-textarea,
+.portal-select {
   width: 100%;
   border: 1px solid #cbd5e1;
   border-radius: 4px;
@@ -1350,7 +1354,9 @@ body {
   transition: border-color 0.15s ease;
 }
 
-.portal-input:focus, .portal-textarea:focus, .portal-select:focus {
+.portal-input:focus,
+.portal-textarea:focus,
+.portal-select:focus {
   border-color: #0c0e1e;
 }
 
@@ -1549,8 +1555,15 @@ body {
 }
 
 @keyframes slide-up {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* ==========================================================================
@@ -1558,7 +1571,8 @@ body {
    ========================================================================== */
 
 /* Prevent horizontal scrollbars globally */
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
@@ -1576,13 +1590,16 @@ html, body {
   .site-header {
     padding: 8px 16px;
   }
+
   .header-nav {
     gap: 16px;
   }
+
   .directory-container,
   .controls-bar {
     padding: 0 24px;
   }
+
   .outlets-grid,
   .simple-cards-grid {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -1591,11 +1608,13 @@ html, body {
 }
 
 @media (max-width: 768px) {
+
   /* Public Header */
   .header-nav,
   .btn-watch-live {
     display: none;
   }
+
   .mobile-menu-btn {
     display: block;
   }
@@ -1604,10 +1623,12 @@ html, body {
   .hero-section {
     padding: 48px 16px 52px;
   }
+
   .hero-title {
     font-size: 28px;
     letter-spacing: -0.3px;
   }
+
   .hero-desc {
     font-size: 14.5px;
     line-height: 1.5;
@@ -1617,13 +1638,16 @@ html, body {
   .search-container-section {
     padding: 36px 16px 20px;
   }
+
   .search-heading {
     font-size: 20px;
   }
+
   .search-subheading {
     font-size: 13.5px;
     margin-bottom: 16px;
   }
+
   .search-input {
     font-size: 15px;
     padding: 12px 42px 12px 18px;
@@ -1634,21 +1658,25 @@ html, body {
     margin-top: 20px;
     gap: 12px;
   }
+
   .simple-region-nav {
     padding: 4px 0 8px;
     gap: 4px;
     -webkit-overflow-scrolling: touch;
   }
+
   .simple-tab-item {
     padding: 8px 12px;
     font-size: 13px;
     flex-shrink: 0;
   }
+
   .filter-subbar {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
+
   .simple-type-group {
     width: 100%;
     overflow-x: auto;
@@ -1656,6 +1684,7 @@ html, body {
     padding-bottom: 4px;
     scrollbar-width: none;
   }
+
   .filter-actions-right {
     width: 100%;
     justify-content: space-between;
@@ -1667,11 +1696,13 @@ html, body {
     padding: 0 16px;
     margin: 24px auto 60px;
   }
+
   .outlets-grid,
   .simple-cards-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
+
   .outlet-card,
   .simple-outlet-card {
     padding: 20px;
@@ -1727,39 +1758,47 @@ html, body {
     align-items: stretch;
     gap: 10px;
   }
+
   .portal-topbar-left {
     width: 100%;
     justify-content: space-between;
   }
+
   .portal-actions {
     width: 100%;
     justify-content: space-between;
     padding-top: 8px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
+
   .portal-container {
     padding: 0 14px;
     margin: 18px auto;
   }
+
   .portal-hero-card {
     padding: 18px 16px;
     flex-direction: column;
     align-items: stretch;
     gap: 14px;
   }
+
   .portal-hero-card button {
     width: 100%;
     justify-content: center;
   }
+
   .portal-login-card {
     margin: 40px auto;
     padding: 24px 18px;
   }
+
   .portal-modal-content {
     padding: 20px 16px;
     width: 95vw;
     max-height: 94vh;
   }
+
   .portal-form-grid-2 {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -1773,31 +1812,37 @@ html, body {
 }
 
 @media (max-width: 640px) {
+
   /* Diff Viewer on Mobile Phones */
   .portal-diff-row-header {
     display: none;
   }
+
   .portal-diff-row {
     grid-template-columns: 1fr;
     gap: 4px;
     padding: 10px 0;
   }
+
   .portal-diff-field-name {
     font-weight: 700;
     color: #0f172a;
     font-size: 13.5px;
     margin-bottom: 2px;
   }
+
   .portal-diff-old::before {
     content: "Live: ";
     font-weight: 600;
     color: #64748b;
   }
+
   .portal-diff-new::before {
     content: "New: ";
     font-weight: 600;
     color: #16a34a;
   }
+
   .portal-diff-old,
   .portal-diff-new {
     display: block;
@@ -1817,48 +1862,60 @@ html, body {
   .hero-title {
     font-size: 24px;
   }
+
   .hero-section {
     padding: 40px 14px 44px;
   }
+
   .search-heading {
     font-size: 18px;
   }
+
   .search-input {
     font-size: 14px;
     padding: 10px 38px 10px 14px;
   }
+
   .simple-outlet-card {
     padding: 14px;
   }
+
   .simple-outlet-name {
     font-size: 16px;
   }
+
   .simple-phone-group {
     font-size: 12px;
     padding: 2px 6px;
   }
+
   .simple-directions-btn {
     font-size: 12px;
     padding: 8px 10px;
   }
+
   .outlet-list-row {
     padding: 14px 12px;
     gap: 10px;
   }
+
   .list-row-title {
     font-size: 15px;
   }
+
   .list-row-actions {
     flex-direction: column;
     gap: 8px;
     padding-top: 10px;
   }
+
   .list-row-actions .list-action-btn {
     width: 100%;
     flex: none;
     padding: 10px 12px;
     font-size: 13px;
   }
+
   .portal-user-tag {
     display: none;
   }
@@ -1867,12 +1924,15 @@ html, body {
   .accordion-trigger {
     padding: 14px 16px;
   }
+
   .section-group-title {
     font-size: 16px;
   }
+
   .accordion-action-text {
     display: none;
   }
+
   .accordion-content {
     padding: 16px 12px;
   }
@@ -1916,10 +1976,12 @@ html, body {
   height: 100%;
 }
 
+/* Half-showing heart at bottom-left edge */
 .hebron-heart-watermark {
   position: absolute;
-  bottom: 28px;
-  left: 36px;
+  bottom: 0px;
+  left: -125px;
+  /* Centers the 240px heart right on the edge so only half shows */
   color: #ffffff;
   opacity: 0.18;
   pointer-events: none;
@@ -1941,28 +2003,52 @@ html, body {
 
 /* TEXT — LEFT */
 .hebron-hero-text {
-  flex: 0 1 460px;
+  flex: 0 1 480px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Subtle circular arc looping behind text */
+.hebron-text-arc {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  border: 52px solid rgba(255, 255, 255, 0.065);
+  bottom: -180px;
+  left: -120px;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .hebron-hero-eyebrow {
   display: inline-block;
   font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 14px;
+  margin-bottom: 20px;
   text-transform: uppercase;
 }
 
 .hebron-hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
-  font-weight: 700;
+  font-size: clamp(3rem, 5.2vw, 4.4rem);
+  font-weight: 800;
   color: #ffffff;
-  line-height: 1.12;
+  line-height: 1.06;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.025em;
+}
+
+.hebron-hero-sub {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.02em;
   margin: 0;
-  letter-spacing: -0.01em;
 }
 
 /* PHOTOS — RIGHT (2 staggered columns with white frames) */
@@ -2083,7 +2169,9 @@ html, body {
   color: var(--text-dark);
 }
 
-.hebron-about-text p { margin: 0; }
+.hebron-about-text p {
+  margin: 0;
+}
 
 /* ── INFO GRID ─────────────────────────────────────────────────── */
 .hebron-info-grid {
@@ -2103,7 +2191,7 @@ html, body {
   border-radius: 18px;
   padding: 32px 28px;
   border: 1px solid var(--border-light);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -2154,7 +2242,10 @@ html, body {
   align-self: flex-start;
   transition: background 0.2s;
 }
-.hebron-directions-btn:hover { background: #c62828; }
+
+.hebron-directions-btn:hover {
+  background: #c62828;
+}
 
 /* ── SERVICE TIMES ─────────────────────────────────────────────── */
 .hebron-services {
@@ -2180,10 +2271,10 @@ html, body {
   display: flex;
   align-items: stretch;
   gap: 0;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 18px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 36px;
 }
 
@@ -2202,7 +2293,7 @@ html, body {
 
 .hebron-service-divider {
   width: 1px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   align-self: stretch;
 }
 
@@ -2220,7 +2311,7 @@ html, body {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255, 255, 255, 0.55);
   margin: 0 0 4px 0;
 }
 
@@ -2242,7 +2333,7 @@ html, body {
 .hebron-services-desc {
   font-size: 1rem;
   line-height: 1.8;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   max-width: 640px;
   margin: 0 auto;
 }
@@ -2291,21 +2382,28 @@ html, body {
     border-radius: 9px;
   }
 
-  .hebron-about { padding: 48px 24px; }
+  .hebron-about {
+    padding: 48px 24px;
+  }
 
   .hebron-about-card {
     flex-direction: column;
     align-items: center;
   }
 
-  .hebron-about-img-wrap { width: 100%; height: 220px; }
+  .hebron-about-img-wrap {
+    width: 100%;
+    height: 220px;
+  }
 
   .hebron-info-grid {
     grid-template-columns: 1fr;
     padding: 40px 24px;
   }
 
-  .hebron-services { padding: 56px 24px; }
+  .hebron-services {
+    padding: 56px 24px;
+  }
 
   .hebron-service-cards {
     flex-direction: column;
@@ -2322,9 +2420,11 @@ html, body {
   .hebron-hero-photos {
     gap: 10px;
   }
+
   .hebron-photo-col {
     gap: 10px;
   }
+
   .hebron-photo-img-wrap {
     width: 138px;
     height: 98px;
@@ -2359,15 +2459,23 @@ html, body {
 
 .hebron-gallery-item:hover {
   transform: scale(1.03);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   z-index: 1;
 }
 
 @media (max-width: 900px) {
-  .hebron-gallery { padding: 48px 24px; }
-  .hebron-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .hebron-gallery {
+    padding: 48px 24px;
+  }
+
+  .hebron-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 480px) {
-  .hebron-gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .hebron-gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
 }

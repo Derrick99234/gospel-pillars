@@ -36,21 +36,26 @@ export default function TheHebronPage() {
           </svg>
         </div>
 
-        {/* Heart watermark on bottom-left */}
+        {/* Half-showing Heart watermark on bottom-left */}
         <div className="hebron-heart-watermark" aria-hidden="true">
-          <svg width="140" height="140" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-          </svg>
+            <svg width="240" height="240" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              {/* Elegant looping line heart */}
+              <path d="M50 82 C22 62 10 44 10 28 C10 16 20 8 32 8 C40 8 47 13 50 19 C53 13 60 8 68 8 C80 8 90 16 90 28 C90 44 78 62 50 82 Z" />
+              <path d="M50 48 C42 36 34 38 34 46 C34 54 44 60 50 68 C56 60 66 54 66 46 C66 38 58 36 50 48 Z" strokeWidth="1.4" opacity="0.7" />
+            </svg>
         </div>
 
         {/* Center Container: Text on Left, Photos on Right */}
         <div className="hebron-hero-inner">
           {/* TEXT — LEFT */}
           <div className="hebron-hero-text">
+            {/* Subtle decorative arc behind text */}
+            <div className="hebron-text-arc" aria-hidden="true" />
             <span className="hebron-hero-eyebrow">THE HEBRON</span>
             <h1 className="hebron-hero-title">
               Gospel Pillars<br />Church Lekki
             </h1>
+            <p className="hebron-hero-sub">Lagos Headquarters</p>
           </div>
 
           {/* PHOTOS — RIGHT (2 staggered columns with white frames) */}
@@ -123,7 +128,13 @@ export default function TheHebronPage() {
 
         <div className="hebron-about-card">
           <div className="hebron-about-img-wrap">
-            <Image src="/hebron/pastor-preaching-word.jpg" alt="Pastor preaching at The Hebron" fill style={{ objectFit: 'cover' }} />
+            <Image
+              src="/hebron/The Hebron Gospel Pillars Church.webp"
+              alt="The Hebron Gospel Pillars Church"
+              fill
+              sizes="(max-width: 768px) 100vw, 320px"
+              style={{ objectFit: 'cover' }}
+            />
           </div>
           <div className="hebron-about-text">
             <p>
