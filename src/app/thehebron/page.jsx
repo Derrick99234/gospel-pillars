@@ -217,36 +217,56 @@ export default function TheHebronPage() {
       <section className="hebron-services">
         <div className="hebron-services-inner">
           <span className="hebron-about-eyebrow" style={{ color: '#e55353' }}>JOIN US</span>
-          <h2 className="hebron-services-title">Sunday Services</h2>
+          <h2 className="hebron-services-title">Worship & Service Times</h2>
 
-          <div className="hebron-service-cards">
-            <div className="hebron-service-item">
-              <span className="hebron-service-num">01</span>
-              <div>
-                <p className="hebron-service-name">First Service</p>
-                <p className="hebron-service-time">8:00 AM</p>
+          {/* Sunday Services */}
+          <div className="hebron-service-block">
+            <h3 className="hebron-service-group-title">Sunday Services</h3>
+            <div className="hebron-service-cards">
+              <div className="hebron-service-item">
+                <span className="hebron-service-num">01</span>
+                <div>
+                  <p className="hebron-service-name">First Service</p>
+                  <p className="hebron-service-time">8:00 AM</p>
+                </div>
               </div>
-            </div>
-            <div className="hebron-service-divider" aria-hidden="true" />
-            <div className="hebron-service-item">
-              <span className="hebron-service-num">02</span>
-              <div>
-                <p className="hebron-service-name">Second Service</p>
-                <p className="hebron-service-time">9:30 AM</p>
+              <div className="hebron-service-divider" aria-hidden="true" />
+              <div className="hebron-service-item">
+                <span className="hebron-service-num">02</span>
+                <div>
+                  <p className="hebron-service-name">Second Service</p>
+                  <p className="hebron-service-time">9:30 AM</p>
+                </div>
               </div>
-            </div>
-            <div className="hebron-service-divider" aria-hidden="true" />
-            <div className="hebron-service-item hebron-service-item--special">
-              <span className="hebron-service-num">03</span>
-              <div>
-                <p className="hebron-service-name">Third Service</p>
-                <p className="hebron-service-time">11:00 AM</p>
-                <p className="hebron-service-note">First Sunday of every month</p>
+              <div className="hebron-service-divider" aria-hidden="true" />
+              <div className="hebron-service-item hebron-service-item--special">
+                <span className="hebron-service-num">03</span>
+                <div>
+                  <p className="hebron-service-name">Third Service</p>
+                  <p className="hebron-service-time">11:00 AM</p>
+                  <p className="hebron-service-note">First Sunday of every month</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <p className="hebron-services-desc">
+          {/* Midweek Service */}
+          <div className="hebron-service-block" style={{ marginTop: '28px' }}>
+            <h3 className="hebron-service-group-title">Midweek Service</h3>
+            <div className="hebron-service-cards hebron-service-cards--midweek">
+              <div className="hebron-service-item hebron-service-item--midweek">
+                <div>
+                  <p className="hebron-service-name">Every Wednesday</p>
+                  <p className="hebron-service-time">7:00 PM – 9:00 PM</p>
+                  <p className="hebron-service-note" style={{ color: 'rgba(255, 255, 255, 0.7)', marginTop: '6px' }}>
+                    A powerful evening encounter in deep revelation of the Word, prayer, and spiritual impartation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p className="hebron-services-desc" style={{ marginTop: '36px' }}>
             All services are designed to facilitate meaningful encounters with God through deep
             revelation of the Word, worship, prayer, fellowship and spiritual impartation.
           </p>
