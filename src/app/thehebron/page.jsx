@@ -33,13 +33,13 @@ export default function TheHebronPage() {
         <div className="hebron-hero-right">
           <div className="hebron-photo-grid">
             <div className="hebron-photo hebron-photo-top">
-              <div className="hebron-photo-placeholder" aria-label="Church service photo" />
+              <Image src="/hebron/panel-discussion-stage.jpg" alt="Gospel Pillars Lekki service" fill style={{ objectFit: 'cover' }} />
             </div>
             <div className="hebron-photo hebron-photo-mid">
-              <div className="hebron-photo-placeholder" aria-label="Congregation photo" />
+              <Image src="/hebron/congregation-midweek-aerial.jpg" alt="Congregation at The Hebron" fill style={{ objectFit: 'cover' }} />
             </div>
             <div className="hebron-photo hebron-photo-btm">
-              <div className="hebron-photo-placeholder" aria-label="Pastoral photo" />
+              <Image src="/hebron/members-arriving-couple.jpg" alt="Members arriving at The Hebron" fill style={{ objectFit: 'cover' }} />
             </div>
           </div>
         </div>
@@ -58,7 +58,7 @@ export default function TheHebronPage() {
 
         <div className="hebron-about-card">
           <div className="hebron-about-img-wrap">
-            <div className="hebron-about-img-placeholder" aria-label="Prophet preaching" />
+            <Image src="/hebron/pastor-preaching-word.jpg" alt="Pastor preaching at The Hebron" fill style={{ objectFit: 'cover' }} />
           </div>
           <div className="hebron-about-text">
             <p>
@@ -174,6 +174,34 @@ export default function TheHebronPage() {
             All services are designed to facilitate meaningful encounters with God through deep
             revelation of the Word, worship, prayer, fellowship and spiritual impartation.
           </p>
+        </div>
+      </section>
+
+      {/* ── GALLERY ──────────────────────────────────────────── */}
+      <section className="hebron-gallery">
+        <div className="hebron-gallery-inner">
+          <span className="hebron-about-eyebrow" style={{ color: '#e55353', display: 'block', textAlign: 'center', marginBottom: '8px' }}>GALLERY</span>
+          <h2 className="hebron-services-title" style={{ color: 'var(--primary-navy)', textAlign: 'center', marginBottom: '32px' }}>Life at The Hebron</h2>
+          <div className="hebron-gallery-grid">
+            {[
+              { src: '/hebron/congregation-revival-aerial.jpg', alt: 'Full congregation revival service' },
+              { src: '/hebron/congregation-taking-notes.jpg', alt: 'Members taking notes during service' },
+              { src: '/hebron/congregation-worship.jpg', alt: 'Congregation in worship' },
+              { src: '/hebron/praise-team-worship.jpg', alt: 'Praise team leading worship' },
+              { src: '/hebron/choir-worship-stage.jpg', alt: 'Choir leading worship on stage' },
+              { src: '/hebron/auditorium-hosting-spirit.jpg', alt: 'Auditorium during service' },
+              { src: '/hebron/prophet-macwealth-stage.jpg', alt: 'Prophet Macwealth on stage' },
+              { src: '/hebron/congregation-wednesday-service.jpg', alt: 'Wednesday service congregation' },
+              { src: '/hebron/members-arriving-green-dress.jpg', alt: 'Members arriving for service' },
+              { src: '/hebron/members-greeting-handshake.jpg', alt: 'Members fellowshipping' },
+              { src: '/hebron/children-church-1a.jpg', alt: 'Children church session 1' },
+              { src: '/hebron/children-church-2a.jpg', alt: 'Children church session 2' },
+            ].map((img, i) => (
+              <div key={i} className="hebron-gallery-item">
+                <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

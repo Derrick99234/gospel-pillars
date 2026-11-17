@@ -2056,6 +2056,7 @@ html, body {
   border-radius: 12px;
   overflow: hidden;
   background: #fecaca;
+  position: relative;
 }
 
 .hebron-about-img-placeholder {
@@ -2272,4 +2273,45 @@ html, body {
     width: auto;
     height: 1px;
   }
+}
+
+/* ── HEBRON GALLERY ─────────────────────────────────────────────── */
+.hebron-gallery {
+  padding: 72px 60px;
+  background: #fff;
+}
+
+.hebron-gallery-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hebron-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.hebron-gallery-item {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f1f5f9;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hebron-gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .hebron-gallery { padding: 48px 24px; }
+  .hebron-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .hebron-gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
 }
