@@ -65,13 +65,9 @@ export default function Header() {
             Give Online
           </a>
 
-          <a href="#outlets" className="nav-link active">
+          <a href="/#outlets" className="nav-link">
             Outlets
           </a>
-
-          <Link href="/portal" className="nav-link">
-            Manager Portal
-          </Link>
 
           <a href="https://gospelpillars.org/contact/" className="nav-link">
             Contact Us

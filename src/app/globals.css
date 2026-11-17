@@ -1894,108 +1894,119 @@ html, body {
 /* ── HERO ──────────────────────────────────────────────────────── */
 .hebron-hero {
   position: relative;
-  background: linear-gradient(135deg, #d32f2f 0%, #c62828 50%, #b71c1c 100%);
-  min-height: 580px;
+  background: radial-gradient(circle at 80% 25%, #f03e3e 0%, #dc2626 40%, #b91c1c 80%, #991b1b 100%);
+  min-height: 560px;
+  overflow: hidden;
+  padding: 68px 32px;
   display: flex;
   align-items: center;
-  overflow: hidden;
-  padding: 72px 48px 72px 60px;
-  gap: 24px;
+  justify-content: center;
 }
 
-.hebron-hero-ring {
+.hebron-hero-backdrop {
   position: absolute;
-  bottom: -120px;
-  left: -80px;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  border: 60px solid rgba(255,255,255,0.07);
+  inset: 0;
   pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
 }
 
-.hebron-hero-left {
-  flex: 1;
+.hebron-wave-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hebron-heart-watermark {
+  position: absolute;
+  bottom: 28px;
+  left: 36px;
+  color: #ffffff;
+  opacity: 0.18;
+  pointer-events: none;
   z-index: 1;
+}
+
+/* Center Container: Text on Left, Photos on Right, perfectly centered and close */
+.hebron-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+}
+
+/* TEXT — LEFT */
+.hebron-hero-text {
+  flex: 0 1 460px;
 }
 
 .hebron-hero-eyebrow {
   display: inline-block;
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 16px;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 14px;
   text-transform: uppercase;
 }
 
 .hebron-hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
   font-weight: 700;
   color: #ffffff;
-  line-height: 1.1;
-  margin: 0 0 16px 0;
-}
-
-.hebron-hero-sub {
-  font-size: 1rem;
-  color: rgba(255,255,255,0.7);
+  line-height: 1.12;
   margin: 0;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: -0.01em;
 }
 
-/* photo collage */
-.hebron-hero-right {
-  flex: 1;
+/* PHOTOS — RIGHT (2 staggered columns with white frames) */
+.hebron-hero-photos {
+  flex: 0 0 auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
+  gap: 22px;
+  align-items: flex-start;
 }
 
-.hebron-photo-grid {
+.hebron-photo-col {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.hebron-col-left {
+  transform: translateY(-16px);
+}
+
+.hebron-col-right {
+  transform: translateY(36px);
+}
+
+.hebron-photo-frame {
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 18px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.24);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.hebron-photo-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.3);
+}
+
+.hebron-photo-img-wrap {
   position: relative;
-  width: 420px;
-  height: 440px;
-}
-
-.hebron-photo {
-  position: absolute;
-  border-radius: 14px;
+  width: 255px;
+  height: 178px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-  background: rgba(255,255,255,0.12);
-}
-
-.hebron-photo-placeholder {
-  width: 100%;
-  height: 100%;
-  background: rgba(255,255,255,0.15);
-}
-
-.hebron-photo-top {
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 160px;
-}
-
-.hebron-photo-mid {
-  top: 130px;
-  left: 0;
-  width: 195px;
-  height: 160px;
-}
-
-.hebron-photo-btm {
-  top: 220px;
-  right: 0;
-  width: 195px;
-  height: 160px;
+  background: #e2e8f0;
 }
 
 /* ── ABOUT ─────────────────────────────────────────────────────── */
@@ -2239,18 +2250,46 @@ html, body {
 /* ── RESPONSIVE ────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .hebron-hero {
-    flex-direction: column;
-    padding: 60px 24px;
-    text-align: center;
+    padding: 48px 20px 60px;
     min-height: auto;
   }
 
-  .hebron-hero-right { width: 100%; }
-  .hebron-photo-grid { width: 320px; height: 340px; margin: 0 auto; }
+  .hebron-hero-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 36px;
+  }
 
-  .hebron-photo-top  { width: 180px; height: 145px; }
-  .hebron-photo-mid  { width: 175px; height: 145px; }
-  .hebron-photo-btm  { width: 175px; height: 145px; }
+  .hebron-hero-text {
+    flex: none;
+    width: 100%;
+  }
+
+  .hebron-col-left,
+  .hebron-col-right {
+    transform: none;
+  }
+
+  .hebron-hero-photos {
+    gap: 14px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hebron-photo-col {
+    gap: 14px;
+  }
+
+  .hebron-photo-frame {
+    padding: 7px;
+    border-radius: 14px;
+  }
+
+  .hebron-photo-img-wrap {
+    width: 160px;
+    height: 115px;
+    border-radius: 9px;
+  }
 
   .hebron-about { padding: 48px 24px; }
 
@@ -2276,6 +2315,19 @@ html, body {
   .hebron-service-divider {
     width: auto;
     height: 1px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hebron-hero-photos {
+    gap: 10px;
+  }
+  .hebron-photo-col {
+    gap: 10px;
+  }
+  .hebron-photo-img-wrap {
+    width: 138px;
+    height: 98px;
   }
 }
 

@@ -22,30 +22,95 @@ export default function TheHebronPage() {
 
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section className="hebron-hero">
-        <div className="hebron-hero-left">
-          <span className="hebron-hero-eyebrow">THE HEBRON</span>
-          <h1 className="hebron-hero-title">
-            Gospel Pillars<br />Church Lekki
-          </h1>
-          <p className="hebron-hero-sub">Lagos Headquarters</p>
+        {/* Subtle curved background overlay */}
+        <div className="hebron-hero-backdrop" aria-hidden="true">
+          <svg className="hebron-wave-svg" viewBox="0 0 1440 600" fill="none" preserveAspectRatio="none">
+            <path
+              d="M-100 500 C 300 580, 700 350, 1100 480 C 1300 540, 1500 420, 1600 380 L 1600 600 L -100 600 Z"
+              fill="rgba(255, 255, 255, 0.08)"
+            />
+            <path
+              d="M700 0 C 950 120, 1200 80, 1550 250 L 1550 0 Z"
+              fill="rgba(255, 255, 255, 0.05)"
+            />
+          </svg>
         </div>
 
-        <div className="hebron-hero-right">
-          <div className="hebron-photo-grid">
-            <div className="hebron-photo hebron-photo-top">
-              <Image src="/hebron/panel-discussion-stage.jpg" alt="Gospel Pillars Lekki service" fill style={{ objectFit: 'cover' }} />
+        {/* Heart watermark on bottom-left */}
+        <div className="hebron-heart-watermark" aria-hidden="true">
+          <svg width="140" height="140" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </div>
+
+        {/* Center Container: Text on Left, Photos on Right */}
+        <div className="hebron-hero-inner">
+          {/* TEXT — LEFT */}
+          <div className="hebron-hero-text">
+            <span className="hebron-hero-eyebrow">THE HEBRON</span>
+            <h1 className="hebron-hero-title">
+              Gospel Pillars<br />Church Lekki
+            </h1>
+          </div>
+
+          {/* PHOTOS — RIGHT (2 staggered columns with white frames) */}
+          <div className="hebron-hero-photos">
+            {/* Column 1 */}
+            <div className="hebron-photo-col hebron-col-left">
+              <div className="hebron-photo-frame">
+                <div className="hebron-photo-img-wrap">
+                  <Image
+                    src="/hebron/panel-discussion-stage.jpg"
+                    alt="Gospel Pillars Lekki service"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 260px"
+                    style={{ objectFit: 'cover' }}
+                    priority
+                  />
+                </div>
+              </div>
+
+              <div className="hebron-photo-frame">
+                <div className="hebron-photo-img-wrap">
+                  <Image
+                    src="/hebron/congregation-midweek-aerial.jpg"
+                    alt="Auditorium congregation at The Hebron"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 260px"
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="hebron-photo hebron-photo-mid">
-              <Image src="/hebron/congregation-midweek-aerial.jpg" alt="Congregation at The Hebron" fill style={{ objectFit: 'cover' }} />
-            </div>
-            <div className="hebron-photo hebron-photo-btm">
-              <Image src="/hebron/members-arriving-couple.jpg" alt="Members arriving at The Hebron" fill style={{ objectFit: 'cover' }} />
+
+            {/* Column 2 (Offset / Staggered) */}
+            <div className="hebron-photo-col hebron-col-right">
+              <div className="hebron-photo-frame">
+                <div className="hebron-photo-img-wrap">
+                  <Image
+                    src="/hebron/congregation-revival-seated.jpg"
+                    alt="Congregation in service at The Hebron"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 260px"
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
+              </div>
+
+              <div className="hebron-photo-frame">
+                <div className="hebron-photo-img-wrap">
+                  <Image
+                    src="/hebron/members-arriving-couple.jpg"
+                    alt="Members arriving at The Hebron"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 260px"
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* decorative ring */}
-        <div className="hebron-hero-ring" aria-hidden="true" />
       </section>
 
       {/* ── ABOUT ────────────────────────────────────────────── */}
@@ -78,8 +143,8 @@ export default function TheHebronPage() {
         <div className="hebron-info-card">
           <div className="hebron-info-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
-              <circle cx="12" cy="10" r="3"/>
+              <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
             </svg>
           </div>
           <h3 className="hebron-info-label">Location</h3>
@@ -102,10 +167,10 @@ export default function TheHebronPage() {
         <div className="hebron-info-card">
           <div className="hebron-info-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
             </svg>
           </div>
           <h3 className="hebron-info-label">Founded</h3>
@@ -121,10 +186,10 @@ export default function TheHebronPage() {
         <div className="hebron-info-card">
           <div className="hebron-info-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-              <path d="M16 3.13a4 4 0 010 7.75"/>
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 00-3-3.87" />
+              <path d="M16 3.13a4 4 0 010 7.75" />
             </svg>
           </div>
           <h3 className="hebron-info-label">Leadership</h3>
