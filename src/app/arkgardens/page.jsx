@@ -35,28 +35,18 @@ export default function ArkGardensPage() {
       {/* ── TWO PHOTOS (Shown once, side-by-side) ─────────────── */}
       <section className="arkgardens-photos-section">
         <div className="arkgardens-simple-container">
-          <div className="arkgardens-two-photos">
-            <div className="arkgardens-photo-box">
-              <Image
-                src="/arkgardens/ark-gardens-exterior.jpg"
-                alt="The Ark Gardens exterior facility"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 550px"
-                style={{ objectFit: 'cover' }}
-              />
-            </div>
-            <div className="arkgardens-photo-box">
-              <Image
-                src="/arkgardens/ark-gardens-hall.jpg"
-                alt="The Ark Gardens conference and banquet hall"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 550px"
-                style={{ objectFit: 'cover' }}
-              />
-            </div>
+          {/* <div className="arkgardens-two-photos"> */}
+          <div className="arkgardens-photo-box">
+            <Image
+              src="/arkgardens/ark-gardens-exterior.jpg"
+              alt="The Ark Gardens exterior facility"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 550px"
+              style={{ objectFit: 'cover' }}
+            />
           </div>
+          {/* </div> */}
         </div>
       </section>
 
@@ -81,7 +71,16 @@ export default function ArkGardensPage() {
             <p>
               The Ark Gardens also offers a convenient hospitality experience for visiting ministers, international delegates, conference participants, ministry partners, families and corporate guests at the Ark of Light for all Nations.
             </p>
-
+            <div className="arkgardens-photo-box">
+              <Image
+                src="/arkgardens/ark-gardens-hall.jpg"
+                alt="The Ark Gardens conference and banquet hall"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 550px"
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
             <p>
               Situated at Plot 11C, Kudirat Abiola Way, Ikeja, Lagos, The Ark Gardens enjoys a strategic location that provides convenient access to the activities and facilities of Ark of Light for All Nations, as well as the wider Ikeja metropolis.
             </p>
