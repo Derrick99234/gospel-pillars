@@ -1977,18 +1977,14 @@ body {
 .hebron-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-      90deg,
+  background: linear-gradient(90deg,
       rgba(15, 4, 6, 0.94) 0%,
       rgba(95, 14, 18, 0.88) 35%,
       rgba(40, 8, 12, 0.5) 60%,
-      rgba(0, 0, 0, 0.15) 100%
-    ),
-    linear-gradient(
-      180deg,
+      rgba(0, 0, 0, 0.15) 100%),
+    linear-gradient(180deg,
       rgba(0, 0, 0, 0.1) 0%,
-      rgba(0, 0, 0, 0.5) 100%
-    );
+      rgba(0, 0, 0, 0.5) 100%);
   pointer-events: none;
 }
 
@@ -2438,12 +2434,10 @@ body {
   }
 
   .hebron-hero-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(15, 4, 6, 0.92) 0%,
-      rgba(95, 14, 18, 0.88) 50%,
-      rgba(20, 5, 8, 0.94) 100%
-    );
+    background: linear-gradient(180deg,
+        rgba(15, 4, 6, 0.92) 0%,
+        rgba(95, 14, 18, 0.88) 50%,
+        rgba(20, 5, 8, 0.94) 100%);
   }
 
   .hebron-hero-inner {
@@ -2461,11 +2455,11 @@ body {
     justify-content: center;
   }
 
-  .hebron-hero-location-badge {
+  /* .hebron-hero-location-badge {
     position: static;
     margin-top: 28px;
     display: inline-block;
-  }
+  } */
 
   .hebron-about {
     padding: 48px 24px;
@@ -2511,6 +2505,10 @@ body {
   .hebron-btn-secondary {
     width: 100%;
     justify-content: center;
+  }
+
+  .hebron-hero-location-badge {
+    display: none;
   }
 }
 
