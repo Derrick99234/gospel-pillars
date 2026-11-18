@@ -22,99 +22,45 @@ export default function TheHebronPage() {
 
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section className="hebron-hero">
-        {/* Subtle curved background overlay */}
-        <div className="hebron-hero-backdrop" aria-hidden="true">
-          <svg className="hebron-wave-svg" viewBox="0 0 1440 600" fill="none" preserveAspectRatio="none">
-            <path
-              d="M-100 500 C 300 580, 700 350, 1100 480 C 1300 540, 1500 420, 1600 380 L 1600 600 L -100 600 Z"
-              fill="rgba(255, 255, 255, 0.08)"
-            />
-            <path
-              d="M700 0 C 950 120, 1200 80, 1550 250 L 1550 0 Z"
-              fill="rgba(255, 255, 255, 0.05)"
-            />
-          </svg>
+        {/* Full Building Background Image */}
+        <div className="hebron-hero-bg-wrap" aria-hidden="true">
+          <Image
+            src="/hebron/The Hebron Gospel Pillars Church.webp"
+            alt="The Hebron Gospel Pillars Church Lekki building"
+            fill
+            priority
+            quality={95}
+            sizes="100vw"
+            style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
+            className="hebron-hero-bg-img"
+          />
+          <div className="hebron-hero-overlay" />
         </div>
 
-        {/* Half-showing Heart watermark on bottom-left */}
-        <div className="hebron-heart-watermark" aria-hidden="true">
-            <svg width="240" height="240" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              {/* Elegant looping line heart */}
-              <path d="M50 82 C22 62 10 44 10 28 C10 16 20 8 32 8 C40 8 47 13 50 19 C53 13 60 8 68 8 C80 8 90 16 90 28 C90 44 78 62 50 82 Z" />
-              <path d="M50 48 C42 36 34 38 34 46 C34 54 44 60 50 68 C56 60 66 54 66 46 C66 38 58 36 50 48 Z" strokeWidth="1.4" opacity="0.7" />
-            </svg>
-        </div>
-
-        {/* Center Container: Text on Left, Photos on Right */}
+        {/* Content Container */}
         <div className="hebron-hero-inner">
-          {/* TEXT — LEFT */}
           <div className="hebron-hero-text">
-            {/* Subtle decorative arc behind text */}
-            <div className="hebron-text-arc" aria-hidden="true" />
-            <span className="hebron-hero-eyebrow">THE HEBRON</span>
             <h1 className="hebron-hero-title">
               Gospel Pillars<br />Church Lekki
             </h1>
             <p className="hebron-hero-sub">Lagos Headquarters</p>
-          </div>
+            <div className="hebron-hero-accent-line" aria-hidden="true" />
+            <p className="hebron-hero-address">180 Freedom Way, Lekki Phase 1, Lagos, Nigeria</p>
 
-          {/* PHOTOS — RIGHT (2 staggered columns with white frames) */}
-          <div className="hebron-hero-photos">
-            {/* Column 1 */}
-            <div className="hebron-photo-col hebron-col-left">
-              <div className="hebron-photo-frame">
-                <div className="hebron-photo-img-wrap">
-                  <Image
-                    src="/hebron/panel-discussion-stage.jpg"
-                    alt="Gospel Pillars Lekki service"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 260px"
-                    style={{ objectFit: 'cover' }}
-                    priority
-                  />
-                </div>
-              </div>
-
-              <div className="hebron-photo-frame">
-                <div className="hebron-photo-img-wrap">
-                  <Image
-                    src="/hebron/congregation-midweek-aerial.jpg"
-                    alt="Auditorium congregation at The Hebron"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 260px"
-                    style={{ objectFit: 'cover' }}
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Column 2 (Offset / Staggered) */}
-            <div className="hebron-photo-col hebron-col-right">
-              <div className="hebron-photo-frame">
-                <div className="hebron-photo-img-wrap">
-                  <Image
-                    src="/hebron/congregation-revival-seated.jpg"
-                    alt="Congregation in service at The Hebron"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 260px"
-                    style={{ objectFit: 'cover' }}
-                  />
-                </div>
-              </div>
-
-              <div className="hebron-photo-frame">
-                <div className="hebron-photo-img-wrap">
-                  <Image
-                    src="/hebron/members-arriving-couple.jpg"
-                    alt="Members arriving at The Hebron"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 260px"
-                    style={{ objectFit: 'cover' }}
-                  />
-                </div>
-              </div>
+            <div className="hebron-hero-actions">
+              <a href="#services" className="hebron-btn-primary">
+                Join Us This Sunday
+              </a>
+              <a href="#services" className="hebron-btn-secondary">
+                Service Times: 8am &amp; 9:30am
+              </a>
             </div>
           </div>
+        </div>
+
+        {/* Bottom Right Location Tag */}
+        <div className="hebron-hero-location-badge" aria-hidden="true">
+          <span>The Hebrons</span>
         </div>
       </section>
 

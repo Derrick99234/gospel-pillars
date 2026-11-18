@@ -1954,123 +1954,177 @@ body {
 /* ── HERO ──────────────────────────────────────────────────────── */
 .hebron-hero {
   position: relative;
-  background: radial-gradient(circle at 80% 25%, #f03e3e 0%, #dc2626 40%, #b91c1c 80%, #991b1b 100%);
   min-height: 560px;
   overflow: hidden;
-  padding: 68px 32px;
+  padding: 84px 36px 76px;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.hebron-hero-backdrop {
+.hebron-hero-bg-wrap {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.hebron-wave-svg {
   width: 100%;
   height: 100%;
-}
-
-/* Half-showing heart at bottom-left edge */
-.hebron-heart-watermark {
-  position: absolute;
-  bottom: 0px;
-  left: -125px;
-  /* Centers the 240px heart right on the edge so only half shows */
-  color: #ffffff;
-  opacity: 0.18;
-  pointer-events: none;
   z-index: 1;
 }
 
-/* Center Container: Text on Left, Photos on Right, perfectly centered and close */
+.hebron-hero-bg-img {
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.hebron-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      90deg,
+      rgba(15, 4, 6, 0.94) 0%,
+      rgba(95, 14, 18, 0.88) 35%,
+      rgba(40, 8, 12, 0.5) 60%,
+      rgba(0, 0, 0, 0.15) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+  pointer-events: none;
+}
+
 .hebron-hero-inner {
   position: relative;
   z-index: 2;
-  max-width: 1180px;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 56px;
 }
 
 /* TEXT — LEFT */
 .hebron-hero-text {
-  flex: 0 1 480px;
+  max-width: 620px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
-/* Subtle circular arc looping behind text */
-.hebron-text-arc {
-  position: absolute;
-  width: 440px;
-  height: 440px;
-  border-radius: 50%;
-  border: 52px solid rgba(255, 255, 255, 0.065);
-  bottom: -180px;
-  left: -120px;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.hebron-hero-eyebrow {
-  display: inline-block;
+.hebron-hero-eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-heading);
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
-  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.18em;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  padding: 6px 14px;
+  border-radius: 20px;
   margin-bottom: 20px;
+  backdrop-filter: blur(8px);
   text-transform: uppercase;
 }
 
 .hebron-hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(3rem, 5.2vw, 4.4rem);
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
   font-weight: 800;
   color: #ffffff;
-  line-height: 1.06;
-  margin: 0 0 20px 0;
-  letter-spacing: -0.025em;
+  line-height: 1.08;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.02em;
 }
 
 .hebron-hero-sub {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #fecaca;
+  letter-spacing: 0.01em;
+  margin: 0 0 16px 0;
+}
+
+.hebron-hero-accent-line {
+  width: 60px;
+  height: 3px;
+  background: #ef4444;
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.hebron-hero-address {
+  font-size: 0.95rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
-  letter-spacing: 0.02em;
-  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 28px 0;
+  line-height: 1.5;
 }
 
-/* PHOTOS — RIGHT (2 staggered columns with white frames) */
-.hebron-hero-photos {
-  flex: 0 0 auto;
+/* Hero Action Buttons */
+.hebron-hero-actions {
   display: flex;
-  gap: 22px;
-  align-items: flex-start;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
-.hebron-photo-col {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
+.hebron-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  background: #dc2626;
+  color: #ffffff;
+  padding: 13px 26px;
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.35);
 }
 
-.hebron-col-left {
-  transform: translateY(-16px);
+.hebron-btn-primary:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.45);
 }
 
-.hebron-col-right {
-  transform: translateY(36px);
+.hebron-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  padding: 13px 22px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.hebron-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Bottom Right Location Tag */
+.hebron-hero-location-badge {
+  position: absolute;
+  bottom: 24px;
+  right: 32px;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
 .hebron-photo-frame {
@@ -2379,45 +2433,38 @@ body {
 /* ── RESPONSIVE ────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .hebron-hero {
-    padding: 48px 20px 60px;
+    padding: 60px 20px 60px;
     min-height: auto;
   }
 
+  .hebron-hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(15, 4, 6, 0.92) 0%,
+      rgba(95, 14, 18, 0.88) 50%,
+      rgba(20, 5, 8, 0.94) 100%
+    );
+  }
+
   .hebron-hero-inner {
-    flex-direction: column;
     text-align: center;
-    gap: 36px;
   }
 
   .hebron-hero-text {
-    flex: none;
-    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .hebron-col-left,
-  .hebron-col-right {
-    transform: none;
-  }
-
-  .hebron-hero-photos {
-    gap: 14px;
+  .hebron-hero-actions {
     justify-content: center;
-    width: 100%;
   }
 
-  .hebron-photo-col {
-    gap: 14px;
-  }
-
-  .hebron-photo-frame {
-    padding: 7px;
-    border-radius: 14px;
-  }
-
-  .hebron-photo-img-wrap {
-    width: 160px;
-    height: 115px;
-    border-radius: 9px;
+  .hebron-hero-location-badge {
+    position: static;
+    margin-top: 28px;
+    display: inline-block;
   }
 
   .hebron-about {
@@ -2454,18 +2501,16 @@ body {
   }
 }
 
-@media (max-width: 420px) {
-  .hebron-hero-photos {
-    gap: 10px;
+@media (max-width: 480px) {
+  .hebron-hero-actions {
+    flex-direction: column;
+    width: 100%;
   }
 
-  .hebron-photo-col {
-    gap: 10px;
-  }
-
-  .hebron-photo-img-wrap {
-    width: 138px;
-    height: 98px;
+  .hebron-btn-primary,
+  .hebron-btn-secondary {
+    width: 100%;
+    justify-content: center;
   }
 }
 
