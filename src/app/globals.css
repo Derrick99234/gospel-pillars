@@ -2499,6 +2499,7 @@ body {
   .hebron-hero-actions {
     flex-direction: column;
     width: 100%;
+    display: none;
   }
 
   .hebron-btn-primary,
@@ -2509,6 +2510,14 @@ body {
 
   .hebron-hero-location-badge {
     display: none;
+  }
+
+  .hebron-hero-overlay {
+    background: linear-gradient(90deg,
+        rgba(15, 4, 6, 0.94) 0%,
+        rgba(95, 14, 18, 0.637) 35%,
+        rgba(40, 8, 12, 0.5) 60%,
+        rgba(0, 0, 0, 0.15) 100%),
   }
 }
 
@@ -2559,6 +2568,14 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 8px;
   }
+
+  .hebron-hero-address {
+    display: none;
+  }
+
+  /* .hebron-hero-title {
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+  } */
 }
 
 
