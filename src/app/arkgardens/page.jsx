@@ -1,16 +1,16 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Image from 'next/image';
-import { Navigation, MapPin } from 'lucide-react';
+import { Navigation, MapPin, Globe, ExternalLink } from 'lucide-react';
 
 export const metadata = {
-  title: 'The Ark Gardens – Conference Centre & Lodging | Ikeja, Lagos',
+  title: 'The Ark Gardens – The Forest of Lebanon | Ikeja, Lagos',
   description:
-    'The Ark Gardens is a contemporary Conference Centre and Lodging destination strategically located in the heart of Ikeja, Lagos, within the premises of Ark of Light for All Nations.',
+    'The Ark Gardens is an intimate Conference and Lodging Centre strategically located in the heart of Ikeja, Lagos, within the premises of the Ark of Light for All Nations.',
   openGraph: {
-    title: 'The Ark Gardens – Conference Centre & Lodging',
+    title: 'The Ark Gardens – The Forest of Lebanon · Conference Centre and Lodgings',
     description:
-      'The Ark Gardens is a contemporary Conference Centre and Lodging destination strategically located in the heart of Ikeja, Lagos.',
+      'The Ark Gardens is an intimate Conference and Lodging Centre strategically located in the heart of Ikeja, Lagos.',
     url: 'https://gospelpillars.org/arkgardens',
     siteName: "Gospel Pillars Int'l Church",
   },
@@ -27,7 +27,7 @@ export default function ArkGardensPage() {
           <span className="arkgardens-kicker">IKEJA, LAGOS</span>
           <h1 className="arkgardens-main-heading">The Ark Gardens</h1>
           <p className="arkgardens-tagline-text">
-            Conference Centre &amp; Lodging &nbsp;·&nbsp; An Experience to Remember
+            The Forest of Lebanon &nbsp;·&nbsp; Conference Centre and Lodgings
           </p>
         </div>
       </section>
@@ -60,45 +60,67 @@ export default function ArkGardensPage() {
         </div>
       </section>
 
-      {/* ── ABOUT CONTENT (Exact provided text) ───────────────── */}
+      {/* ── ABOUT CONTENT (Exact client text) ────────────────── */}
       <section className="arkgardens-content-section">
         <div className="arkgardens-simple-container arkgardens-text-container">
           <h2 className="arkgardens-subheading">About The Ark Gardens</h2>
 
           <div className="arkgardens-body-text">
             <p>
-              The Ark Gardens is a contemporary Conference Centre and Lodging destination
-              strategically located in the heart of Ikeja, Lagos, within the premises of
-              Ark of Light for All Nations.
+              The Ark Gardens is an intimate Conference and Lodging Centre strategically located in the heart of Ikeja, Lagos, within the premises of the Ark of Light for All Nations.
             </p>
 
             <p>
-              Established to provide a welcoming and comfortable environment for conferences,
-              accommodation and hospitality, The Ark Gardens houses a modern conference facility,
-              multi-roomed serviced apartments and comfortable lodges to meet the diverse needs
-              of guests and visitors from around the world.
+              Due to be opened on the 22nd of November 2026, the Ark Gardens provides a welcoming and comfortable environment for intimate conferences, accommodation and hospitality.
             </p>
 
             <p>
-              The Ark Gardens offers a convenient hospitality experience for visiting ministers,
-              international delegates, conference participants, ministry partners, families and
-              corporate guests.
+              The Ark Gardens houses a modern conference facility, multi-roomed serviced apartments and comfortable lodges to meet the diverse needs of guests and visitors from around the world.
             </p>
 
             <p>
-              Situated at Plot 11C, Kudirat Abiola Way, Ikeja, Lagos, The Ark Gardens enjoys
-              a strategic location that provides convenient access to the activities and facilities
-              of Ark of Light for All Nations, as well as the wider Ikeja metropolis.
+              The Ark Gardens also offers a convenient hospitality experience for visiting ministers, international delegates, conference participants, ministry partners, families and corporate guests at the Ark of Light for all Nations.
             </p>
 
             <p>
-              With a commitment to comfort, convenience and quality hospitality, The Ark Gardens
-              is more than a place to stay; it is a destination designed to facilitate meaningful
-              engagements and create memorable experiences.
+              Situated at Plot 11C, Kudirat Abiola Way, Ikeja, Lagos, The Ark Gardens enjoys a strategic location that provides convenient access to the activities and facilities of Ark of Light for All Nations, as well as the wider Ikeja metropolis.
             </p>
+
+            <p>
+              The Ark Gardens is designed to host intimate Christian gatherings, birthdays, trainings and programmes designed for spiritual elevation and personal revival. It is a place for private prayer where ministers and families can have prayer retreats in an atmosphere that is spiritual and full of the Holy Ghost.
+            </p>
+
+            {/* Enquiries & Reservations */}
+            <div className="arkgardens-enquiries-box">
+              <div className="arkgardens-enquiries-info">
+                <span className="arkgardens-enquiries-label">Reservations &amp; Enquiries</span>
+                <p className="arkgardens-enquiries-text">
+                  For enquiries and reservations, please visit{' '}
+                  <a
+                    href="https://arkgardens.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="arkgardens-website-link"
+                  >
+                    https://arkgardens.org
+                  </a>
+                </p>
+              </div>
+              <a
+                href="https://arkgardens.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="arkgardens-visit-btn"
+              >
+                <Globe size={16} />
+                <span>Visit arkgardens.org</span>
+                <ExternalLink size={14} />
+              </a>
+            </div>
 
             <p className="arkgardens-highlight-quote">
-              The Ark Gardens – An Experience to Remember.
+              Ark Gardens – The Forest of Lebanon.
+              <span className="arkgardens-quote-sub">Conference Centre and Lodgings</span>
             </p>
           </div>
 

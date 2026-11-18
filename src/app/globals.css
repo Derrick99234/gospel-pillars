@@ -2630,7 +2630,88 @@ body {
   font-style: italic;
   border-left: 3px solid #d4af37;
   padding-left: 14px;
-  margin: 28px 0 36px !important;
+  margin: 32px 0 36px !important;
+  line-height: 1.4;
+}
+
+.arkgardens-quote-sub {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #64748b;
+  font-style: normal;
+  margin-top: 4px;
+}
+
+/* Enquiries & Reservations Box */
+.arkgardens-enquiries-box {
+  margin: 32px 0 28px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #d4af37;
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+}
+
+.arkgardens-enquiries-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.arkgardens-enquiries-label {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #856404;
+}
+
+.arkgardens-enquiries-text {
+  font-size: 1rem;
+  color: #334155;
+  margin: 0 !important;
+  line-height: 1.5;
+}
+
+.arkgardens-website-link {
+  color: #0c0e1e;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.arkgardens-website-link:hover {
+  color: #d4af37;
+}
+
+.arkgardens-visit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0c0e1e;
+  color: #ffffff;
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.arkgardens-visit-btn:hover {
+  background: #232733;
+  color: #d4af37;
+  transform: translateY(-1px);
 }
 
 /* Address & Directions Box */
@@ -2710,6 +2791,16 @@ body {
 
   .arkgardens-photo-box {
     height: 260px;
+  }
+
+  .arkgardens-enquiries-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .arkgardens-visit-btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .arkgardens-address-card {

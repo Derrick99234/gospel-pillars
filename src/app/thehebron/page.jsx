@@ -138,10 +138,7 @@ export default function TheHebronPage() {
           </div>
           <div className="hebron-about-text">
             <p>
-              Gospel Pillars Church Lekki – <strong>The Hebron</strong>, is the Lagos Headquarters
-              of Gospel Pillars International Churches. It is a vibrant, non-denominational branch
-              within a multifaceted, multicultural global church network that has over one hundred
-              branches across five continents.
+              Gospel Pillars Church Lekki – <strong>The Hebron</strong>, is the Headquarters of Gospel Pillars Churches in Lagos, Nigeria.
             </p>
           </div>
         </div>
@@ -160,9 +157,7 @@ export default function TheHebronPage() {
           </div>
           <h3 className="hebron-info-label">Location</h3>
           <p className="hebron-info-body">
-            180 Freedom Way, after Renee Supermarket,<br />
-            Off Admiralty Way, Lekki Phase 1,<br />
-            Lagos, Nigeria
+            The Hebron is situated at 180 Freedom Way, after Renee Supermarket, Off Admiralty Way, Lekki Phase 1, Lagos, Nigeria.
           </p>
           <a
             href="https://maps.google.com/?q=180+Freedom+Way+Lekki+Phase+1+Lagos"
@@ -174,7 +169,7 @@ export default function TheHebronPage() {
           </a>
         </div>
 
-        {/* Founding */}
+        {/* Founding & Role */}
         <div className="hebron-info-card">
           <div className="hebron-info-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -184,12 +179,9 @@ export default function TheHebronPage() {
               <line x1="3" y1="10" x2="21" y2="10" />
             </svg>
           </div>
-          <h3 className="hebron-info-label">Founded</h3>
+          <h3 className="hebron-info-label">Founding &amp; Role</h3>
           <p className="hebron-info-body">
-            Founded in <strong>March 2026</strong> as one of eight new churches planted in one day
-            by <strong>Prophet Isaiah Macwealth</strong>. Designated the Lagos Headquarters and
-            positioned as a major worship and revival centre serving Lekki, Victoria Island,
-            Ikoyi and wider Lagos Island communities.
+            Founded in <strong>March 2026</strong>, it is lead Church of the twelve Gospel Pillars Churches in Lagos, (including Gospel Pillars Church Ikeja that meets in the H4 Auditorium of the Ark of Light for all Nations). The Hebron is positioned as a major worship and revival center serving the Lekki, Victoria Island, Ikoyi and wider Lagos Island communities.
           </p>
         </div>
 
@@ -205,9 +197,7 @@ export default function TheHebronPage() {
           </div>
           <h3 className="hebron-info-label">Leadership</h3>
           <p className="hebron-info-body">
-            The Hebron has a presiding pastor who operates under the spiritual leadership of
-            <strong> Prophet Isaiah Macwealth</strong>, Founder and Senior Pastor of Gospel
-            Pillars International Churches.
+            The Church is led by <strong>Prophet Isaiah Macwealth</strong> and <strong>Prophetess Lily Anita</strong> and a network of pastors, elders, deacons and a vibrant workforce that are driven by a passion for Jesus.
           </p>
         </div>
 
@@ -216,12 +206,15 @@ export default function TheHebronPage() {
       {/* ── SERVICE TIMES ────────────────────────────────────── */}
       <section className="hebron-services">
         <div className="hebron-services-inner">
-          <span className="hebron-about-eyebrow" style={{ color: '#e55353' }}>JOIN US</span>
-          <h2 className="hebron-services-title">Worship & Service Times</h2>
+          <span className="hebron-about-eyebrow" style={{ color: '#e55353' }}>WEEKLY SERVICES &amp; EXPERIENCE</span>
+          <h2 className="hebron-services-title">Worship &amp; Service Times</h2>
+          <p style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '1.05rem', margin: '-18px auto 36px', textAlign: 'center', maxWidth: '640px', lineHeight: 1.6 }}>
+            Every week, The Hebron hosts Midweek and Sunday Services as follows:
+          </p>
 
           {/* Sunday Services */}
           <div className="hebron-service-block">
-            <h3 className="hebron-service-group-title">Sunday Services</h3>
+            <h3 className="hebron-service-group-title">Sundays (Weekly Services)</h3>
             <div className="hebron-service-cards">
               <div className="hebron-service-item">
                 <span className="hebron-service-num">01</span>
@@ -244,7 +237,7 @@ export default function TheHebronPage() {
                 <div>
                   <p className="hebron-service-name">Third Service</p>
                   <p className="hebron-service-time">11:00 AM</p>
-                  <p className="hebron-service-note">First Sunday of every month</p>
+                  <p className="hebron-service-note">Specialized Services on First Sunday of each month</p>
                 </div>
               </div>
             </div>
@@ -256,8 +249,8 @@ export default function TheHebronPage() {
             <div className="hebron-service-cards hebron-service-cards--midweek">
               <div className="hebron-service-item hebron-service-item--midweek">
                 <div>
-                  <p className="hebron-service-name">Every Wednesday</p>
-                  <p className="hebron-service-time">7:00 PM – 9:00 PM</p>
+                  <p className="hebron-service-name">Wednesdays</p>
+                  <p className="hebron-service-time">7:00 PM</p>
                   <p className="hebron-service-note" style={{ color: 'rgba(255, 255, 255, 0.7)', marginTop: '6px' }}>
                     A powerful evening encounter in deep revelation of the Word, prayer, and spiritual impartation.
                   </p>
@@ -267,8 +260,7 @@ export default function TheHebronPage() {
           </div>
 
           <p className="hebron-services-desc" style={{ marginTop: '36px' }}>
-            All services are designed to facilitate meaningful encounters with God through deep
-            revelation of the Word, worship, prayer, fellowship and spiritual impartation.
+            All weekly services are designed to facilitate meaningful encounters with God through deep revelation of the word, worship, prayer, fellowship and spiritual impartation.
           </p>
         </div>
       </section>
