@@ -124,30 +124,6 @@ export default function ArkGardensPage() {
             </p>
           </div>
 
-          {/* Location & Directions Button */}
-          <div className="arkgardens-address-card">
-            <div className="arkgardens-address-details">
-              <div className="arkgardens-pin-row">
-                <MapPin size={20} className="arkgardens-pin-icon" />
-                <span className="arkgardens-address-title">Address</span>
-              </div>
-              <p className="arkgardens-address-full">
-                Plot 11C, Kudirat Abiola Way, Ikeja, Lagos, Nigeria<br />
-                <span className="arkgardens-address-sub">Within the premises of Ark of Light for All Nations</span>
-              </p>
-            </div>
-
-            <a
-              href="https://maps.google.com/?q=Plot+11C+Kudirat+Abiola+Way+Ikeja+Lagos"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="arkgardens-simple-btn"
-            >
-              <Navigation size={16} />
-              <span>Get Directions</span>
-            </a>
-          </div>
-
         </div>
       </section>
 
