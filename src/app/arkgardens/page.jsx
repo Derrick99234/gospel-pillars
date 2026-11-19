@@ -90,7 +90,7 @@ export default function ArkGardensPage() {
             </p>
 
             {/* Enquiries & Reservations */}
-            <div className="arkgardens-enquiries-box">
+            {/* <div className="arkgardens-enquiries-box">
               <div className="arkgardens-enquiries-info">
                 <span className="arkgardens-enquiries-label">Reservations &amp; Enquiries</span>
                 <p className="arkgardens-enquiries-text">
@@ -115,7 +115,7 @@ export default function ArkGardensPage() {
                 <span>Visit arkgardens.org</span>
                 <ExternalLink size={14} />
               </a>
-            </div>
+            </div> */}
 
             <p className="arkgardens-highlight-quote">
               Ark Gardens – The Forest of Lebanon.
