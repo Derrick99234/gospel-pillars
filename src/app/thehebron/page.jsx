@@ -57,11 +57,6 @@ export default function TheHebronPage() {
             </div>
           </div>
         </div>
-
-        {/* Bottom Right Location Tag */}
-        <div className="hebron-hero-location-badge" aria-hidden="true">
-          <span>The Hebrons</span>
-        </div>
       </section>
 
       {/* ── ABOUT ────────────────────────────────────────────── */}
