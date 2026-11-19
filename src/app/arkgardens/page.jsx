@@ -19,7 +19,7 @@ export const metadata = {
 export default function ArkGardensPage() {
   return (
     <main className="arkgardens-page">
-      <Header />
+      {/* <Header /> */}
 
       {/* ── HEADER TITLE ────────────────────────────────────── */}
       <section className="arkgardens-intro">
