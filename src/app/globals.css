@@ -3320,256 +3320,492 @@ body {
    ARK GARDENS ADMIN PAGE  /arkgardens/admin
    ========================================================================== */
 
-.ark-admin-page {
+/* ── Login page ── */
+.ark-adm-login-page {
   min-height: 100vh;
-  background: #f8fafc;
-  font-family: var(--font-body);
-}
-
-/* Login */
-.ark-admin-login-wrap {
+  background: linear-gradient(135deg, #0c0e1e 0%, #1a1f3a 60%, #0e1428 100%);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   padding: 24px;
-  gap: 12px;
 }
 
-.ark-admin-login-title {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #0c0e1e;
-  margin: 0;
-}
-
-.ark-admin-login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.ark-adm-login-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 32px 36px;
   width: 100%;
-  max-width: 320px;
-}
-
-.ark-admin-login-form input {
-  padding: 11px 14px;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  outline: none;
-}
-
-.ark-admin-login-form input:focus {
-  border-color: #d4af37;
-}
-
-.ark-admin-login-form button {
-  background: #d4af37;
-  color: #0c0e1e;
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.ark-admin-error {
-  color: #dc2626;
-  font-size: 0.84rem;
-  margin: 0;
-}
-
-/* Dashboard */
-.ark-admin-dash {
-  padding: 0;
-}
-
-.ark-admin-topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 28px;
-  background: #fff;
-  border-bottom: 1px solid #e2e8f0;
-  gap: 16px;
-}
-
-.ark-admin-topbar-left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.ark-admin-dash-title {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #0c0e1e;
-  margin: 0;
-}
-
-.ark-admin-dash-sub {
-  font-size: 0.8rem;
-  color: #94a3b8;
-  margin: 0;
-}
-
-.ark-admin-topbar-right {
-  display: flex;
-  gap: 10px;
-}
-
-.ark-admin-refresh,
-.ark-admin-logout {
-  padding: 8px 16px;
-  border-radius: 7px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  border: 1.5px solid #e2e8f0;
-  background: #fff;
-  color: #334155;
-  transition: background 0.18s;
-}
-
-.ark-admin-logout {
-  border-color: #fca5a5;
-  color: #dc2626;
-}
-
-.ark-admin-refresh:hover { background: #f1f5f9; }
-.ark-admin-logout:hover { background: #fee2e2; }
-
-/* Stats row */
-.ark-admin-stats {
-  display: flex;
-  gap: 12px;
-  padding: 20px 28px;
-  flex-wrap: wrap;
-}
-
-.ark-admin-stat {
-  background: #fff;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 14px 22px;
-  cursor: pointer;
+  max-width: 380px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 90px;
-  transition: border-color 0.18s, box-shadow 0.18s;
+  gap: 6px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
 }
 
-.ark-admin-stat.active {
-  border-color: #d4af37;
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
-}
-
-.ark-stat-num {
+.ark-adm-login-heading {
   font-family: var(--font-heading);
   font-size: 1.6rem;
   font-weight: 800;
   color: #0c0e1e;
+  margin: 8px 0 0;
+}
+
+.ark-adm-login-sub {
+  font-size: 0.84rem;
+  color: #94a3b8;
+  margin: 0 0 20px;
+}
+
+.ark-adm-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.ark-adm-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ark-adm-input-icon {
+  position: absolute;
+  left: 14px;
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+.ark-adm-input-wrap input {
+  width: 100%;
+  padding: 13px 14px 13px 40px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.18s;
+  box-sizing: border-box;
+}
+
+.ark-adm-input-wrap input:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+.ark-adm-login-error {
+  color: #dc2626;
+  font-size: 0.83rem;
+  margin: 0;
+  text-align: center;
+}
+
+.ark-adm-login-btn {
+  background: #d4af37;
+  color: #0c0e1e;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  margin-top: 4px;
+}
+
+.ark-adm-login-btn:hover:not(:disabled) {
+  background: #c09b2a;
+  transform: translateY(-1px);
+}
+
+.ark-adm-login-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Dashboard shell ── */
+.ark-adm-dash {
+  min-height: 100vh;
+  background: #f1f5f9;
+  font-family: var(--font-body);
+}
+
+/* Header */
+.ark-adm-header {
+  background: #0c0e1e;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.ark-adm-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ark-adm-header-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
   line-height: 1;
 }
 
-.ark-stat-label {
-  font-size: 0.75rem;
-  color: #94a3b8;
-  margin-top: 4px;
-  text-transform: capitalize;
+.ark-adm-header-sub {
+  font-size: 0.72rem;
+  color: #d4af37;
+  margin: 2px 0 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-.ark-admin-info {
-  padding: 40px 28px;
+.ark-adm-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ark-adm-icon-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s;
+}
+
+.ark-adm-icon-btn:hover { background: rgba(255,255,255,0.2); }
+
+.ark-adm-signout {
+  background: rgba(239,68,68,0.15);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #fca5a5;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.ark-adm-signout:hover { background: rgba(239,68,68,0.28); }
+
+/* Stats */
+.ark-adm-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 20px 20px 0;
+}
+
+.ark-adm-stat {
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: border-color 0.18s, box-shadow 0.18s, transform 0.15s;
+}
+
+.ark-adm-stat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.ark-adm-stat--active {
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.2);
+}
+
+.ark-adm-stat-num {
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #0c0e1e;
+  line-height: 1;
+  transition: color 0.18s;
+}
+
+.ark-adm-stat-label {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Toolbar */
+.ark-adm-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 8px;
+}
+
+.ark-adm-toolbar-count {
+  font-size: 0.85rem;
   color: #64748b;
+  font-weight: 500;
+  margin: 0;
+}
+
+.ark-adm-view-toggle {
+  display: flex;
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ark-adm-view-toggle button {
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.ark-adm-view-toggle button.active {
+  background: #0c0e1e;
+  color: #fff;
+}
+
+/* Content area */
+.ark-adm-content {
+  padding: 8px 20px 40px;
+}
+
+.ark-adm-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #94a3b8;
   font-size: 0.95rem;
 }
 
-/* Table */
-.ark-admin-table-wrap {
-  padding: 0 28px 40px;
-  overflow-x: auto;
+/* ── Booking cards ── */
+.ark-adm-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.ark-admin-table {
+.ark-bcard {
+  background: #fff;
+  border-radius: 14px;
+  border: 1.5px solid #e2e8f0;
+  overflow: hidden;
+  transition: box-shadow 0.18s;
+}
+
+.ark-bcard:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+
+.ark-bcard-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  cursor: pointer;
+  gap: 12px;
+}
+
+.ark-bcard-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.ark-bcard-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d4af37, #c09b2a);
+  color: #0c0e1e;
+  font-weight: 800;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ark-bcard-name {
+  font-weight: 700;
+  color: #0c0e1e;
+  font-size: 0.95rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ark-bcard-room {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin: 2px 0 0;
+}
+
+.ark-bcard-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.ark-bcard-chevron {
+  font-size: 0.65rem;
+  color: #cbd5e1;
+}
+
+.ark-bcard-body {
+  border-top: 1px solid #f1f5f9;
+  padding: 16px;
+}
+
+.ark-bcard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.ark-bcard-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ark-bcard-field--full {
+  grid-column: span 2;
+}
+
+.ark-bcard-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ark-bcard-field span:last-child {
+  font-size: 0.88rem;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.ark-bcard-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.ark-bcard-status-select {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  background: #f8fafc;
+  color: #334155;
+  transition: border-color 0.18s;
+}
+
+.ark-bcard-status-select:focus {
+  border-color: #d4af37;
+}
+
+.ark-bcard-delete {
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.18s;
+}
+
+.ark-bcard-delete:hover { background: #fecaca; }
+
+/* ── Table view ── */
+.ark-adm-table-scroll {
+  overflow-x: auto;
+  border-radius: 14px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.ark-adm-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.875rem;
   background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  min-width: 700px;
 }
 
-.ark-admin-table th {
+.ark-adm-table th {
   background: #f8fafc;
   color: #64748b;
   font-weight: 700;
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 12px 16px;
   text-align: left;
   border-bottom: 1px solid #e2e8f0;
 }
 
-.ark-admin-table td {
+.ark-adm-table td {
   padding: 12px 16px;
   border-bottom: 1px solid #f1f5f9;
   vertical-align: top;
   color: #1e293b;
 }
 
-.ark-admin-table tr:last-child td {
-  border-bottom: none;
-}
-
-.ark-admin-table tr:hover td {
-  background: #fafbfc;
-}
+.ark-adm-table tr:last-child td { border-bottom: none; }
+.ark-adm-table tr:hover td { background: #fafbfc; }
 
 .ark-cell-sub {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: #94a3b8;
   margin-top: 2px;
 }
 
-.ark-cell-message {
-  max-width: 180px;
-  color: #64748b;
-  font-size: 0.82rem;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .ark-adm-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-.ark-status-select {
-  padding: 5px 9px;
-  border-radius: 6px;
-  border: 1px solid #e2e8f0;
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-  outline: none;
-}
-
-.ark-delete-btn {
-  background: #fee2e2;
-  color: #dc2626;
-  border: none;
-  padding: 6px 13px;
-  border-radius: 6px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.18s;
-}
-
-.ark-delete-btn:hover {
-  background: #fecaca;
+  .ark-adm-login-card {
+    padding: 32px 20px 28px;
+  }
 }

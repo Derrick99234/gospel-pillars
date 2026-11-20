@@ -25,8 +25,8 @@ export default function ArkGardensPage() {
         <Image
           src="/arkgardens/ark-gardens-logo.jpg"
           alt="Ark Gardens – The Forest of Lebanon"
-          width={220}
-          height={220}
+          width={110}
+          height={110}
           style={{ objectFit: 'contain' }}
           priority
         />
