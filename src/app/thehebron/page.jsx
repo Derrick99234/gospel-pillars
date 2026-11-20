@@ -1,6 +1,7 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Image from 'next/image';
+import HebronGallery from '../../components/HebronGallery';
 
 export const metadata = {
   title: 'The Hebron – Gospel Pillars Church Lekki | Lagos HQ',
@@ -207,32 +208,7 @@ export default function TheHebronPage() {
       </section>
 
       {/* ── GALLERY ──────────────────────────────────────────── */}
-      <section className="hebron-gallery">
-        <div className="hebron-gallery-inner">
-          <span className="hebron-about-eyebrow" style={{ color: '#e55353', display: 'block', textAlign: 'center', marginBottom: '8px' }}>GALLERY</span>
-          <h2 className="hebron-services-title" style={{ color: 'var(--primary-navy)', textAlign: 'center', marginBottom: '32px' }}>Life at The Hebron</h2>
-          <div className="hebron-gallery-grid">
-            {[
-              { src: '/hebron/congregation-revival-aerial.jpg', alt: 'Full congregation revival service' },
-              { src: '/hebron/congregation-taking-notes.jpg', alt: 'Members taking notes during service' },
-              { src: '/hebron/congregation-worship.jpg', alt: 'Congregation in worship' },
-              { src: '/hebron/praise-team-worship.jpg', alt: 'Praise team leading worship' },
-              { src: '/hebron/choir-worship-stage.jpg', alt: 'Choir leading worship on stage' },
-              { src: '/hebron/auditorium-hosting-spirit.jpg', alt: 'Auditorium during service' },
-              { src: '/hebron/prophet-macwealth-stage.jpg', alt: 'Prophet Macwealth on stage' },
-              { src: '/hebron/congregation-wednesday-service.jpg', alt: 'Wednesday service congregation' },
-              { src: '/hebron/members-arriving-green-dress.jpg', alt: 'Members arriving for service' },
-              { src: '/hebron/members-greeting-handshake.jpg', alt: 'Members fellowshipping' },
-              { src: '/hebron/children-church-1a.jpg', alt: 'Children church session 1' },
-              { src: '/hebron/children-church-2a.jpg', alt: 'Children church session 2' },
-            ].map((img, i) => (
-              <div key={i} className="hebron-gallery-item">
-                <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HebronGallery />
 
       <Footer />
     </main>
