@@ -2,6 +2,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Image from 'next/image';
 import { Navigation, MapPin, Globe, ExternalLink } from 'lucide-react';
+import ArkGardensBooking from '../../components/ArkGardensBooking';
 
 export const metadata = {
   title: 'The Ark Gardens – The Forest of Lebanon | Ikeja, Lagos',
@@ -19,7 +20,17 @@ export const metadata = {
 export default function ArkGardensPage() {
   return (
     <main className="arkgardens-page">
-      {/* <Header /> */}
+      {/* ── ARK GARDENS LOGO HEADER ─────────────────────────── */}
+      <header className="arkgardens-logo-header">
+        <Image
+          src="/arkgardens/ark-gardens-logo.jpg"
+          alt="Ark Gardens – The Forest of Lebanon"
+          width={220}
+          height={220}
+          style={{ objectFit: 'contain' }}
+          priority
+        />
+      </header>
 
       {/* ── HEADER TITLE ────────────────────────────────────── */}
       <section className="arkgardens-intro">
@@ -121,6 +132,10 @@ export default function ArkGardensPage() {
               Ark Gardens – The Forest of Lebanon.
               <span className="arkgardens-quote-sub">Conference Centre and Lodgings</span>
             </p>
+
+            <div className="arkgardens-book-wrap">
+              <ArkGardensBooking />
+            </div>
           </div>
 
         </div>
