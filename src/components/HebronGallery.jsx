@@ -41,45 +41,6 @@ const albums = [
     date: 'Group 2',
     images: makeImages('midweek-g2', 11, 'Midweek service at The Hebron'),
   },
-  {
-    id: 'nov-17-2026',
-    label: 'Sunday Service',
-    date: 'November 17, 2026',
-    images: [
-      { src: '/hebron/hebron-new-01.jpg', alt: 'Sunday service at The Hebron' },
-      { src: '/hebron/hebron-new-02.jpg', alt: 'Sunday service at The Hebron' },
-      { src: '/hebron/hebron-new-03.jpg', alt: 'Sunday service at The Hebron' },
-      { src: '/hebron/hebron-new-04.jpg', alt: 'Sunday service at The Hebron' },
-      { src: '/hebron/hebron-new-05.jpg', alt: 'Sunday service at The Hebron' },
-      { src: '/hebron/hebron-new-06.jpg', alt: 'Sunday service at The Hebron' },
-      { src: '/hebron/hebron-new-07.jpg', alt: 'Sunday service at The Hebron' },
-      { src: '/hebron/hebron-new-08.jpg', alt: 'Sunday service at The Hebron' },
-      { src: '/hebron/hebron-new-09.jpg', alt: 'Sunday service at The Hebron' },
-      { src: '/hebron/hebron-new-10.jpg', alt: 'Sunday service at The Hebron' },
-      { src: '/hebron/hebron-new-11.jpg', alt: 'Sunday service at The Hebron' },
-      { src: '/hebron/hebron-new-12.jpg', alt: 'Sunday service at The Hebron' },
-      { src: '/hebron/hebron-new-13.jpg', alt: 'Sunday service at The Hebron' },
-    ],
-  },
-  {
-    id: 'life-at-hebron',
-    label: 'Life at The Hebron',
-    date: '',
-    images: [
-      { src: '/hebron/congregation-revival-aerial.jpg', alt: 'Full congregation revival service' },
-      { src: '/hebron/congregation-taking-notes.jpg', alt: 'Members taking notes during service' },
-      { src: '/hebron/congregation-worship.jpg', alt: 'Congregation in worship' },
-      { src: '/hebron/praise-team-worship.jpg', alt: 'Praise team leading worship' },
-      { src: '/hebron/choir-worship-stage.jpg', alt: 'Choir leading worship on stage' },
-      { src: '/hebron/auditorium-hosting-spirit.jpg', alt: 'Auditorium during service' },
-      { src: '/hebron/prophet-macwealth-stage.jpg', alt: 'Prophet Macwealth on stage' },
-      { src: '/hebron/congregation-wednesday-service.jpg', alt: 'Wednesday service congregation' },
-      { src: '/hebron/members-arriving-green-dress.jpg', alt: 'Members arriving for service' },
-      { src: '/hebron/members-greeting-handshake.jpg', alt: 'Members fellowshipping' },
-      { src: '/hebron/children-church-1a.jpg', alt: 'Children church session 1' },
-      { src: '/hebron/children-church-2a.jpg', alt: 'Children church session 2' },
-    ],
-  },
 ];
 
 export default function HebronGallery() {
@@ -121,7 +82,7 @@ export default function HebronGallery() {
       <div className="hgallery-inner">
         <div className="hgallery-heading">
           <span className="hebron-about-eyebrow" style={{ color: '#e55353' }}>GALLERY</span>
-          <h2 className="hgallery-title">Photo Albums</h2>
+          <h2 className="hgallery-title">Life at Hebron</h2>
         </div>
 
         {albums.map((album, aIdx) => (
