@@ -3,7 +3,44 @@
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 
+function makeImages(prefix, count, alt) {
+  return Array.from({ length: count }, (_, i) => ({
+    src: `/hebron/${prefix}-${String(i + 1).padStart(2, '0')}.jpg`,
+    alt,
+  }));
+}
+
 const albums = [
+  {
+    id: 'sunday-group-1',
+    label: 'Sunday Service',
+    date: 'Group 1',
+    images: makeImages('sunday-g1', 17, 'Sunday service at The Hebron'),
+  },
+  {
+    id: 'sunday-group-2',
+    label: 'Sunday Service',
+    date: 'Group 2',
+    images: makeImages('sunday-g2', 15, 'Sunday service at The Hebron'),
+  },
+  {
+    id: 'sunday-group-3',
+    label: 'Sunday Service',
+    date: 'Group 3',
+    images: makeImages('sunday-g3', 28, 'Sunday service at The Hebron'),
+  },
+  {
+    id: 'midweek-group-1',
+    label: 'Midweek Service',
+    date: 'Group 1',
+    images: makeImages('midweek-g1', 20, 'Midweek service at The Hebron'),
+  },
+  {
+    id: 'midweek-group-2',
+    label: 'Midweek Service',
+    date: 'Group 2',
+    images: makeImages('midweek-g2', 11, 'Midweek service at The Hebron'),
+  },
   {
     id: 'nov-17-2026',
     label: 'Sunday Service',
