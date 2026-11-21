@@ -38,7 +38,7 @@ export default function ArkGardensPage() {
           <span className="arkgardens-kicker">IKEJA, LAGOS</span>
           <h1 className="arkgardens-main-heading">The Ark Gardens</h1>
           <p className="arkgardens-tagline-text">
-            The Forest of Lebanon &nbsp;·&nbsp; Conference Centre and Lodgings
+            Conference &nbsp;·&nbsp;  Meetings &nbsp;·&nbsp; Lodge
           </p>
         </div>
       </section>
