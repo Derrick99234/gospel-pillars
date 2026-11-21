@@ -57,10 +57,6 @@ export default function Header() {
             </div>
           </div>
 
-          <a href="https://gospelpillars.org/blog/" className="nav-link">
-            Blog
-          </a>
-
           <a href="https://gospelpillars.org/give/" className="nav-link">
             Give Online
           </a>
@@ -121,7 +117,6 @@ export default function Header() {
               </a>
             </div>
           </div>
-          <a href="https://gospelpillars.org/blog/" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Blog</a>
           <a href="https://gospelpillars.org/give/" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Give Online</a>
           <a href="#outlets" className="nav-link active" onClick={() => setMobileMenuOpen(false)}>Outlets</a>
           <Link href="/portal" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Manager Portal</Link>
